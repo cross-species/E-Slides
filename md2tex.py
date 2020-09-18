@@ -26,13 +26,25 @@ class MD2TEX (object):
 
         slide = {}
         subtitle = ""
+        subsubtitle = []
+        items = []
+        sub_items = []
+        code={"flag":0, "language":"", "contents":[]}
+        equation = {"flag":0, "contents":[]}
         for line in lines:
             if line == '':
                 continue
+            elif code['flag'] == 1:
+                code['contents'].append(line.strip())
+            elif equation['flag'] == 1:
+                equation['contents'].append(line.strip())
             elif re.match(r'# (.*)', line):
                 self.title = re.match(r'# (.*)', line).group(1)
             elif re.match(r'-----', line):
                 self.slides.append(slide)
+                items = []
+                sub_items = []
+                subsubtitle = []
                 if subtitle == "":
                     slide = {}
                 else:
@@ -40,12 +52,37 @@ class MD2TEX (object):
             elif re.match(r'## (.*)', line):
                 subtitle = re.match(r'## (.*)', line).group(1)
                 slide['subtitle'] = subtitle
+            elif re.match(r'### (.*)', line):
+                subsubtitle.append(re.match(r'### (.*)', line).group(1))
             elif re.match(r'![[](.*?)[]][(](.*?)[)]', line):
                 obj = re.match(r'![[](.*?)[]][(](.*?)[)]', line)
                 img = {}
                 img['name'] = obj.group(1)
                 img['path'] = obj.group(2)
                 slide['img'] = img
+            elif re.match(r'* (.*?)', line):
+                items.append(re.match(r'* (.*?)', line).group(1))
+                slide['items'] = items
+            elif re.match(r'  * (.*?)', line):
+                sub_items.append(re.match(r'  * (.*?)', line).group(1))
+                slide['subitems'] = sub_items 
+            elif re.match(r'$(.*?)$', line):
+                slide['equation'] = re.match(r'$(.*?)$', line).group(1)
+            elif re.match(r'```', line):
+                language = re.match(r'```', line).group(1)
+                if language == '':
+                    code['flag'] = 0
+                    slide['code'] = code
+                else:
+                    code['language'] = language
+                    code['flag'] = 1
+            elif re.match(r'| (.*?) | (.*?) | (.*?) ', line):
+
+
+
+
+
+
 
     def info2latex(self):
         image_filename = os.path.join(os.path.dirname(__file__), 'kitten.jpg')

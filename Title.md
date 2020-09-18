@@ -1,6 +1,6 @@
-% E-slides
-% team-cross
-% Sept 18, 2020
+# Title
+
+------
 
 
 
@@ -22,21 +22,19 @@ A Teacher is responsible for preparing lesson plans and educating students at al
 * auto formatting
 * online preview
 * downloads
-  * exclusively for teachers
-  * exclusively for students
-
------
-
-
 
 * contain equations and codes
 
-$L(y,f(x)) = (y-f(x))^2$
+  For example:
 
-```python
-x = [1,2,3,4,5]
-y = x.pop()
-```
+  * $$
+    L(y,f(x)) = (y-f(x))^2
+    $$
+
+  * ```python
+    x = [1,2,3,4,5]
+    y = x.pop()
+    ```
 
 ------
 
