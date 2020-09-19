@@ -21,6 +21,7 @@ A Teacher is responsible for preparing lesson plans and educating students at al
 * Online editing
 * auto formatting
 * online preview
+
 * downloads
   * exclusively for teachers
   * exclusively for students
@@ -31,12 +32,20 @@ A Teacher is responsible for preparing lesson plans and educating students at al
 
 * contain equations and codes
 
-$L(y,f(x)) = (y-f(x))^2$
+  
 
-```python
-x = [1,2,3,4,5]
-y = x.pop()
-```
+  *Equation eg.*
+
+  $L(y,f(x)) = (y-f(x))^2$
+  
+  
+  
+  *Code eg.*
+  
+  ```python
+    x = [1,2,3,4,5]
+    y = x.pop()
+  ```
 
 ------
 
