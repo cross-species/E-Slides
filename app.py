@@ -1,19 +1,24 @@
 # project/__init__.py
-from flask import Flask
+from flask import Flask, request, render_template
 app = Flask(__name__)
 
 
-@app.route('/', methods=('POST'))
+@app.route('/', methods=['POST'])
 def login():
     username = request.form['username']
     password = request.form['password']
     # db = get_db()
     # error = None
 
-    if not username:
-        error = 'Username is required.'
-    elif not password:
-        error = 'Password is required.'
+    # if not username:
+    #     error = 'Username is required.'
+    # elif not password:
+    #     error = 'Password is required.'
+
+    if username == "abc" and password == "abc":
+        return f"<html><body>Welcome {username}</body></html>"
+    else:
+        return f"<html><body>Welcome!</body></html>"
 
     ##############不管用户名密码是什么都login#############
     # elif db.execute(
@@ -31,4 +36,4 @@ def login():
 
     # flash(error)
 
-    return render_template('/.html')
+    # return render_template('/.html')
