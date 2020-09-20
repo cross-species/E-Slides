@@ -1,5 +1,5 @@
 # project/__init__.py
-from flask import flash, abort, Flask, jsonify, render_template, redirect, url_for, request, make_response, send_from_directory, send_file
+from flask import flash, abort, Flask, jsonify, render_template, redirect, url_for, request, make_response, send_from_directory, send_file, session
 from flask_wtf.form import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, IntegerField, SubmitField, TextAreaField, Form
 from wtforms.validators import Length, DataRequired, Optional
@@ -43,7 +43,11 @@ def login():
 @app.route('/md', methods=['GET', 'POST'])
 def markdown():
     if request.method == 'GET':
+        session['style'] = 'sdadf'
         return render_template('/md.html')
+    # if request.method == 'POST':
+    #     g.style = 'sdadf'
+    #     return render_template('md.html')
 
 
 @app.route('/test_post/mindmap', methods=['POST'])
@@ -88,6 +92,7 @@ def new_jupyter():
 @app.route('/test_post/slides', methods=['POST'])
 def post_slides():
     print(request.form['data'])
+    print('g-style: ', session.get('style'))
     md_name = "example"
     md_name = save_md(request.form['data'], md_name)
     sld_name = md_name + "_slides"
