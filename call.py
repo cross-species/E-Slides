@@ -6,7 +6,7 @@ def callMindMap(input, output, fileCat="html"):
         "." + fileCat + "\" --enable-mathjax --enable-prism --no-open " + input + ".md"
     os.system(order)
 
-def startJupyter(path = "D:\\E-Slides\\"):
+def startJupyter(path = "D:\\E-Slides\\static\\data\\"):
     order1 = "cd " + path
     order2 = "jupyter notebook"
     status = False
@@ -22,9 +22,4 @@ def callSlides(id, output):
     os.system()
 
 
-output = "test_out"
-fileCat = "txt"
-id = "test"
-
-callMindMap_once(id, output, fileCat)
 

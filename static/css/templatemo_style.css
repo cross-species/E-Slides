@@ -20,7 +20,7 @@ input[type="submit"],
 .main-button, input[type="text"],
 input[type="email"],
 textarea,
-.form-input, .site-header, .mobile-nav .mobile-social-icons li a, .audio-player, .slide-navigation .slide-prev i,
+.form-input, .site-header, .site-header-new, .mobile-nav .mobile-social-icons li a, .audio-player, .slide-navigation .slide-prev i,
 .slide-navigation .slide-next i, .partner-logo, .team-overlay .team-social-icons li a, .folio-overlay a, .folio-filters li a {
   -moz-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
@@ -305,7 +305,16 @@ label {
   border-bottom: 2px solid #f3f3f3;
   z-index: 9991;
 }
-
+.site-header-new {
+    position: fixed;
+    top: 0;
+    display: block;
+    padding: 15px 0;
+    width: 100%;
+    background-color: white;
+    border-bottom: 2px solid #f3f3f3;
+    z-index: 9991;
+  }
 /* Mobile Menu Styling */
 .mobile-menu-trigger {
   position: absolute;
@@ -477,6 +486,11 @@ label {
   z-index: 10;
   padding: 100px 0 90px 0;
 }
+.content-section-new {
+    position: relative;
+    z-index: 10;
+    padding: 50px 0 90px 0;
+  }
 .content-section h3 {
   text-transform: uppercase;
   margin: 0 0 10px 0;
