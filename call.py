@@ -16,8 +16,10 @@ def startJupyter():
         status = True
     return status
 
-# def callJupyter(code):
     
+def callSlides(id, output):
+    order = "pandoc "+id+".md -o "+output+".html -t slidy -s"
+    os.system()
 
 
 
