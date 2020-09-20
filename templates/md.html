@@ -28,6 +28,8 @@
     <form>
         <input type="button" id="mindmapButton" value="mindmap">
         <input type="button" id="slidesButton" value="slides">
+        <input type="button" id="jupyter_new" value="Create a new jupyter notebook">
+        <input type="button" id='jupyter_my_own' value='Open my jupyter notebook'>
     </form>
 
     {% for iframe_path in context %}
@@ -78,6 +80,10 @@
             mindmap_button.onclick = mindmap_handleButtonClick;
             var slides_button = document.getElementById("slidesButton");
             slides_button.onclick = slides_handleButtonClick;
+            var jupyter_new_button = document.getElementById('jupyter_new');
+            jupyter_new_button.onclick = jupyter_CreateNew;
+            var jupyter_new_button = document.getElementById('jupyter_my_own');
+            jupyter_new_button.onclick = jupyter_UseMyOwn;
         }
 
         var frames = []
@@ -144,7 +150,7 @@
                         frames.push('./data/' + data.message + '.html')
                         // window.Refresh()
                         var iframe = document.createElement('iframe'); 
-                        iframe.src='./static/data/' + data.message + '.html'; 
+                        iframe.src='./show/' + data.message + '.html'; 
                         iframe.width = '100%'
                         iframe.height = '640'
                         iframe.id = 'mindmap'
@@ -154,6 +160,39 @@
                 })
             }
         }
+
+        function jupyter_UseMyOwn(e){
+            $.ajax({
+                url: "/test_post/jupyter",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    'signal' : true,
+                    'data' : textInput
+                },
+                success: function (data) {
+                    // $("#mindmap").remove()
+                    // $("#slides").remove()
+                    console.log(data)
+                    window.open(data.jupyter_home);
+                    window.open(data.jupyter_file);
+                }
+            })
+        }
+
+        function jupyter_CreateNew(e) {
+            $.ajax({
+                url: "/test_post/jupyter",
+                type: "GET",
+                success: function (data) {
+                    // $("#mindmap").remove()
+                    // $("#slides").remove()
+                    console.log(data)
+                    window.open(data.jupyter_home);  // fuzhi untitled.ipynb
+                }
+            })
+        }
+
 
         // Katex auto-render
         // document.addEventListener("DOMContentLoaded", function() {
