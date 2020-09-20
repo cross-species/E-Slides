@@ -1,1350 +1,342 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
-<title>Home</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<meta name="description" content="" />
-<meta name="keywords" content="" />
-
-<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=cyrillic" rel="stylesheet">
-
-<link rel="stylesheet" href="/static/css/basic.css" />
-<link rel="stylesheet" href="/static/css/layout.css" />
-<link rel="stylesheet" href="/static/css/blogs.css" />
-<link rel="stylesheet" href="/static/css/line-awesome.css" />
-<link rel="stylesheet" href="/static/css/magnific-popup.css" />
-<link rel="stylesheet" href="/static/css/animate.css" />
-<link rel="stylesheet" href="/static/css/simplebar.css" />
-
-<!-- theme colors -->
-<link rel="stylesheet" href="/static/css/theme-colors/green.css" />
-<!--<link rel="stylesheet" href="css/theme-colors/blue.css" />-->
-<!--<link rel="stylesheet" href="css/theme-colors/red.css" />-->
-<!--<link rel="stylesheet" href="css/theme-colors/orange.css" />-->
-<!--<link rel="stylesheet" href="css/theme-colors/pink.css" />-->
-<!--<link rel="stylesheet" href="css/theme-colors/purple.css" />-->
-
-<!--[if lt IE 9]>
-<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> 
 <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> 
+<![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    <head>
+    	<!-- 
+    	Impressum Theme
+    	http://www.templatemo.com/tm-432-impressum
+    	-->
+        <title>Impressum Parallax Theme</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta charset="UTF-8">
 
-</head>
-
-<body>
-<div class="page">
-	
-	<!--
-		Preloader
-	-->
-	<div class="preloader">
-		<div class="centrize full-width">
-			<div class="vertical-center">
-				<div class="spinner">
-					<div class="double-bounce1"></div>
-					<div class="double-bounce2"></div>
-				</div>
-			</div>
-		</div>
+        <!-- CSS Bootstrap & Custom -->
+        <link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+		<link href="/static/css/animate.css" rel="stylesheet" media="screen">
+        <link href="/static/css/templatemo_style.css" rel="stylesheet" media="screen">
+       
+        <!-- JavaScripts -->
+        <script src="/static/js/jquery-1.10.2.min.js"></script>
+        <script src="/static/js/modernizr.js"></script>
+        <!--[if lt IE 8]>
+	    <div style=' clear: both; text-align:center; position: relative;'>
+            <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" alt="" /></a>
+        </div>
+        <![endif]-->
+    </head>
+    <body>
+	<!-- Preloader -->
+	<div id="page-preloader">
+	    <div id="spinner"></div>
 	</div>
+	<!-- End Preloader -->
 	
-	<!--
-		Header
-	-->
-	<header class="header">
+	<!-- Mobile Menu -->
+	<div id="mobile-menu" class="mobile-nav hide-nav hidden-md hidden-lg">
+	    <div class="mobile-menu-close">
+		<button type="button" class="close" aria-hidden="true"><span>Close</span>&times;</button>
+	    </div>
+	   
+		<ul class="mobile-navigation">
+		    <li><a href="#introduction">Home</a></li>
+		    <li><a href="#about">About Us</a></li>
+		    <li><a href="#portfolio">Portfolio</a></li>
+		    <li><a href="#partners">Partners</a></li>
+		    <li><a href="#our-team">Our Team</a></li>
+		    <li><a href="#contact">Contact</a></li>
+		</ul>
+		
+		<ul class="mobile-social-icons">
+		    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+		    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+		    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+		    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+		</ul>
+	    
+	</div>
 
-		<!-- logo -->
-		<div class="logo">
-			<a href="#"><span>P</span></a>
-		</div>
-
-		<!-- menu -->
-		<div class="top-menu">
-			<ul>
-				<li class="active">
-					<a href="#home-card">
-						<span class="icon la la-home"></span>
-						<span class="link">Home</span>
-					</a>
-				</li>
-				<li>
-					<a href="#about-card">
-						<span class="icon la la-user"></span>
-						<span class="link">About</span>
-					</a>
-				</li>
-				<li>
-					<a href="#resume-card">
-						<span class="icon la la-gear"></span>
-						<span class="link">Resume</span>
-					</a>
-				</li>
-				<li>
-					<a href="#works-card">
-						<span class="icon la la-eye"></span>
-						<span class="link">Portfolio</span>
-					</a>
-				</li>
-				<li>
-					<a href="#blog-card">
-						<span class="icon la la-newspaper-o"></span>
-						<span class="link">Blog</span>
-					</a>
-				</li>
-				<li>
-					<a href="#contacts-card">
-						<span class="icon la la-envelope"></span>
-						<span class="link">Contacts</span>
-					</a>
-				</li>
-			</ul>
-		</div>
-
-		<!-- Started socials -->
-		<div class="social">
-			<a target="_blank" href="#"><span class="icon la la-dribbble"></span></a>
-			<a target="_blank" href="#"><span class="icon la la-facebook"></span></a>
-			<a target="_blank" href="#"><span class="icon la la-github"></span></a>
-			<a target="_blank" href="#"><span class="icon la la-stack-overflow"></span></a>
-		</div>
-
-		<!-- Mobile Menu -->
-		<span class="menu-btn">
-			<span class="m-line"></span>
-		</span>
-
-	</header>
-
-	<!--
-		Container
-	-->
-	<div class="container">
-
-		<!--
-			Card - Started
-		-->
-		<div class="card-inner card-started active" id="home-card">
-
-			<!-- Started Background -->
-			<div class="slide" style="background-image: url(/static/images/bg.jpg);"></div>
+        <!-- Header -->
+        <header id="header" class="site-header" role="banner">
+	    <div class="container">
+		<div class="row">
+		    
+		    <div class="col-md-4 logo">
+			<a href="#">
+			    <img src="/static/images/logo.png" style="zoom:8%;" alt="Impressum Template" title="Impressum Parallax Template">
+			</a>
+		    </div> <!-- //.logo -->
+		    
+		    <div class="col-md-8">
+			<nav id="navigation" class="hidden-sm hidden-xs">
+			    <ul id="main-nav" class="main-navigation">
+				<li class="current"><a href="#introduction">Home</a></li>
+				<li><a href="#about">About Us</a></li>
+				<li><a href="#portfolio">Portfolio</a></li>
+				<li><a href="#partners">Partners</a></li>
+				<li><a href="#our-team">Our Team</a></li>
+				<li><a href="#contact">Contact</a></li>
+			    </ul>
+			</nav>
 			
-			<div class="centrize full-width">
-				<div class="vertical-center">
-
-					<!-- Started titles -->
-					<div class="title"><span>Patrick</span> Johansson</div>
-					<div class="subtitle">
-						I am 
-						<div class="typing-title">
-							<p>a <strong>web developer.</strong></p>
-							<p>a <strong>blogger.</strong></p>
-							<p>a <strong>freelancer.</strong></p>
-							<p>a <strong>photographer.</strong></p>
-						</div>
-						<span class="typed-title"></span>
-					</div>
-					
+			<a href="#mobile-menu" class="visible-xs visible-sm mobile-menu-trigger"><i class="fa  fa-reorder"></i></a>
+			
+		    </div>
+		    
+		</div> <!-- //.row -->
+	    </div> <!-- //.container -->
+            
+        </header>
+	<!-- End Header -->
+	
+	<!-- Introduction Section -->
+	<section id="introduction" class="content-section clearfix">
+	    <div class="flexslider introduction-slider">
+		
+		<ul class="slides">
+		    <li> 
+			<div class="flex-caption section-overlay slide-caption">
+			    <div class="container">
+				<div class="row">
+				    <div class="col-md-12">
+					<h2>
+					    E-slides<br>
+					    - Created by TEAM-cross-species 
+					</h2>
+					<a class="slide-button">Read More</a>
+				    </div>
 				</div>
-			</div>
-
-		</div>
-
-		<!-- 
-			Card - About
-		-->
-		<div class="card-inner" id="about-card">
-			<div class="row card-container">
-
-				<!--
-					Card Wrap
-				-->
-				<div class="card-wrap col col-m-12 col-t-12 col-d-8 col-d-lg-6" data-simplebar>
-					
-					<!-- About Image -->
-					<div class="card-image col col-m-12 col-t-12 col-d-4 col-d-lg-6" style="background-image: url(/static/images/profile.jpg);"></div>
-					
-					<!--
-						Inner Top
-					-->
-					<div class="content inner-top">
-						<div class="row">
-							<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-								<div class="title-bg">About Me</div>
-								<div class="text">
-									<p>
-										<strong>Hello, I’m a Patrick</strong>, web-developer based on Paris. <br />
-										I have rich experience in web site design & building <br />
-										and customization. Also I am good at <strong>html, css, <br />
-										wordpress, php, jquery, bootstrap.</strong>
-									</p>
-								</div>
-								<div class="circle-bts">
-									<a href="#"><span><i class="icon la la-download"></i>Download CV</span></a>
-									<a href="#"><i class="icon la la-github"></i></a>
-									<a href="#"><i class="icon la la-stack-overflow"></i></a>
-									<a href="#"><i class="icon la la-skype"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!--
-						Services
-					-->
-					<div class="content services">
-						<div class="row">
-							<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-
-								<!-- title -->
-								<div class="title"><span>Our</span> Services</div>
-
-							</div>
-						</div>
-
-						<!-- service items -->
-						<div class="row service-items">
-
-							<!-- service item -->
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-								<div class="service-item card-box">
-									<div class="icon"><i class="la la-html5"></i></div>
-									<div class="name">Web Development</div>
-									<p>
-										Modern and mobile-ready website that will help of your marketing.
-									</p>
-								</div>
-							</div>
-
-							<!-- service item -->
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-								<div class="service-item card-box">
-									<div class="icon"><i class="la la-music"></i></div>
-									<div class="name">Music Writing</div>
-									<p>
-										Music copying, transcription, arranging and composition Services.
-									</p>
-								</div>
-							</div>
-
-							<!-- service item -->
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-								<div class="service-item card-box">
-									<div class="icon"><i class="la la-bullhorn"></i></div>
-									<div class="name">Advetising</div>
-									<p>
-										Advertising services include television, radio, print, mail and web.
-									</p>
-								</div>
-							</div>
-
-							<!-- service item -->
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-								<div class="service-item card-box">
-									<div class="icon"><i class="la la-gamepad"></i></div>
-									<div class="name">Game Development</div>
-									<p>
-										Developing memorable and unique mobile android, ios games.
-									</p>
-								</div>
-							</div>
-
-							<!-- service item -->
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-								<div class="service-item card-box">
-									<div class="icon"><i class="la la-area-chart"></i></div>
-									<div class="name">Analytics</div>
-									<p>
-										Basic, advanced, custom implementations and online media analysis.
-									</p>
-								</div>
-							</div>
-
-							<!-- service item -->
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-								<div class="service-item card-box">
-									<div class="icon"><i class="la la-camera-retro"></i></div>
-									<div class="name">Hosting</div>
-									<p>
-										Full-day or half-day photo shoots with all necessary equipment.
-									</p>
-								</div>
-							</div>
-
-						</div>
-
-					</div>
-
-					<!--
-						Price Tables
-					-->
-					<div class="content pricing">
-						<div class="row">
-							<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-
-								<!-- title -->
-								<div class="title"><span>Pricing</span> Tables</div>
-
-							</div>
-						</div>
-
-						<!-- pricing items -->
-						<div class="row pricing-items">
-
-							<!-- pricing item -->
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-								<div class="pricing-item card-box">
-									<div class="icon"><i class="la la-tachometer"></i></div>
-									<div class="name">Basic</div>
-									<div class="amount">
-										<span class="dollar">$</span>
-										<span class="number">22</span>
-										<span class="period">hour</span>
-									</div>
-									<div class="feature-list">
-										<ul>
-											<li>Web Development</li>
-											<li>Advetising</li>
-											<li>Game Development</li>
-											<li class="disable">Music Writing</li>
-											<li class="disable">Photography <strong>new</strong></li>
-										</ul>
-									</div>
-									<div class="lnks">
-										<a href="#" class="lnk">Buy <span>Basic</span></a>
-									</div>
-								</div>
-							</div>
-
-							<!-- pricing item -->
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-								<div class="pricing-item card-box">
-									<div class="icon"><i class="la la-rocket"></i></div>
-									<div class="name">Pro</div>
-									<div class="amount">
-										<span class="dollar">$</span>
-										<span class="number">48</span>
-										<span class="period">hour</span>
-									</div>
-									<div class="feature-list">
-										<ul>
-											<li>Web Development</li>
-											<li>Advetising</li>
-											<li>Game Development</li>
-											<li>Music Writing</li>
-											<li>Photography <strong>new</strong></li>
-										</ul>
-									</div>
-									<div class="lnks">
-										<a href="#" class="lnk">Buy <span>Pro</span></a>
-									</div>
-								</div>
-							</div>
-
-						</div>
-
-					</div>
-
-					<!--
-						Fun Fact
-					-->
-					<div class="content fuct">
-						<div class="row">
-							<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-
-								<!-- title -->
-								<div class="title"><span>Fun</span> Facts</div>
-
-							</div>
-						</div>
-
-						<!-- fuct items -->
-						<div class="row fuct-items">
-
-							<!-- fuct item -->
-							<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-								<div class="fuct-item card-box">
-									<div class="icon"><i class="la la-headphones"></i></div>
-									<div class="name">47 Albumes Listened</div>
-								</div>
-							</div>
-
-							<!-- fuct item -->
-							<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-								<div class="fuct-item card-box">
-									<div class="icon"><i class="la la-trophy"></i></div>
-									<div class="name">15 Awards Won</div>
-								</div>
-							</div>
-
-							<!-- fuct item -->
-							<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-								<div class="fuct-item card-box">
-									<div class="icon"><i class="la la-lightbulb-o"></i></div>
-									<div class="name">54 Projects Completed</div>
-								</div>
-							</div>
-
-							<!-- fuct item -->
-							<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-								<div class="fuct-item card-box">
-									<div class="icon"><i class="la la-flag-o"></i></div>
-									<div class="name">10 Countries Visited</div>
-								</div>
-							</div>
-
-							<!-- fuct item -->
-							<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-								<div class="fuct-item card-box">
-									<div class="icon"><i class="la la-book"></i></div>
-									<div class="name">50+ Books Readed</div>
-								</div>
-							</div>
-
-							<!-- fuct item -->
-							<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-								<div class="fuct-item card-box">
-									<div class="icon"><i class="la la-code"></i></div>
-									<div class="name">100 000 Lines of Code</div>
-								</div>
-							</div>
-
-							<!-- fuct item -->
-							<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-								<div class="fuct-item card-box">
-									<div class="icon"><i class="la la-smile-o"></i></div>
-									<div class="name">49 Satisfied Customers</div>
-								</div>
-							</div>
-
-							<!-- fuct item -->
-							<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-								<div class="fuct-item card-box">
-									<div class="icon"><i class="la la-bicycle"></i></div>
-									<div class="name">1250 km Cycled</div>
-								</div>
-							</div>
-
-						</div>
-
-					</div>
-
-					<!--
-						Clients
-					-->
-					<div class="content clients">
-						<div class="row">
-							<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-
-								<!-- title -->
-								<div class="title"><span>Our</span> Clients</div>
-
-							</div>
-						</div>
-
-						<!-- client items -->
-						<div class="row client-items">
-
-							<!-- client item -->
-							<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-								<div class="client-item card-box">
-									<div class="image">
-										<a target="_blank" href="#">
-											<img src="/static/images/clients/client_1.png" alt="" />
-										</a>
-									</div>
-								</div>
-							</div>
-
-							<!-- client item -->
-							<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-								<div class="client-item card-box">
-									<div class="image">
-										<a target="_blank" href="#">
-											<img src="/static/images/clients/client_3.png" alt="" />
-										</a>
-									</div>
-								</div>
-							</div>
-
-							<!-- client item -->
-							<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-								<div class="client-item card-box">
-									<div class="image">
-										<a target="_blank" href="#">
-											<img src="/static/images/clients/client_4.png" alt="" />
-										</a>
-									</div>
-								</div>
-							</div>
-
-							<!-- client item -->
-							<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-								<div class="client-item card-box">
-									<div class="image">
-										<a target="_blank" href="#">
-											<img src="/static/images/clients/client_1.png" alt="" />
-										</a>
-									</div>
-								</div>
-							</div>
-
-							<!-- client item -->
-							<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-								<div class="client-item card-box">
-									<div class="image">
-										<a target="_blank" href="#">
-											<img src="/static/images/clients/client_3.png" alt="" />
-										</a>
-									</div>
-								</div>
-							</div>
-
-							<!-- client item -->
-							<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-								<div class="client-item card-box">
-									<div class="image">
-										<a target="_blank" href="#">
-											<img src="/static/images/clients/client_4.png" alt="" />
-										</a>
-									</div>
-								</div>
-							</div>
-
-							<!-- client item -->
-							<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-								<div class="client-item card-box">
-									<div class="image">
-										<a target="_blank" href="#">
-											<img src="/static/images/clients/client_1.png" alt="" />
-										</a>
-									</div>
-								</div>
-							</div>
-
-							<!-- client item -->
-							<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-								<div class="client-item card-box">
-									<div class="image">
-										<a target="_blank" href="#">
-											<img src="/static/images/clients/client_3.png" alt="" />
-										</a>
-									</div>
-								</div>
-							</div>
-
-						</div>
-
-					</div>
-
+			    </div>
+			</div> 
+			<img src="/static/images/slides/slide1.jpg" alt="slide-01">  
+		    </li>
+		    
+		    <li> 
+			<div class="flex-caption section-overlay slide-caption">
+			    <div class="container">
+				<div class="row">
+				    <div class="col-md-12">
+					<h2>
+					    课件自动生成
+					</h2>
+					<a class="slide-button">Get Started</a>
+				    </div>
 				</div>
-				
-			</div>
+			    </div>
+			</div> 
+			<img src="/static/images/slides/slide2.jpg" alt="slide-02">    
+		    </li>
+		    
+		</ul>
+
+		<div class="slide-navigation">
+		    <a href="#" class="slide-prev"><i class="fa fa-arrow-left"></i></a>
+		    <a href="#" class="slide-next"><i class="fa fa-arrow-right"></i></a>
 		</div>
 		
-		<!-- 
-			Card - Resume
-		-->
-		<div class="card-inner" id="resume-card">
-			<div class="row card-container">
-					
-				<!--
-					Card Wrap
-				-->
-				<div class="card-wrap col col-m-12 col-t-12 col-d-8 col-d-lg-6" data-simplebar>
-
-					<!-- Resume Image -->
-					<div class="card-image col col-m-12 col-t-12 col-d-4 col-d-lg-6" style="background-image: url(/static/images/profile2.jpg);"></div>
-
-					<!--
-						Inner Top
-					-->
-					<div class="content inner-top">
-						<div class="row">
-							<div class=" col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-								<div class="title-bg">Resume</div>
-							</div>
-						</div>
-					</div>
-
-					<!--
-						Resume
-					-->
-					<div class="content resume">
-						<div class="row">
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-
-								<!-- title -->
-								<div class="title"><span>My</span> Experience</div>
-
-								<!-- resume items -->
-								<div class="resume-items card-box">
-
-									<!-- resume item -->
-									<div class="resume-item">
-										<div class="name">Web Development</div>
-										<div class="date">2013-Present <span>|</span> Facebook Inc.</div>
-										<p>
-											Collaborate with creative and development teams on the execution of ideas.
-										</p>
-									</div>
-
-									<!-- resume item -->
-									<div class="resume-item">
-										<div class="name">Front-end Developer</div>
-										<div class="date">2011-2012 <span>|</span> Google Inc.</div>
-										<p>
-											Monitored technical aspects of the front-end delivery for several projects.
-										</p>
-									</div>
-
-									<!-- resume item -->
-									<div class="resume-item">
-										<div class="name">Senior Developer</div>
-										<div class="date">2009-2010 <span>|</span> Abc Inc.</div>
-										<p>
-											Optimize website performance using latest technology.
-										</p>
-									</div>
-
-								</div>
-							</div>
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-
-								<!-- title -->
-								<div class="title"><span>My</span> Education</div>
-
-								<!-- resume items -->
-								<div class="resume-items card-box">
-
-									<!-- resume item -->
-									<div class="resume-item">
-										<div class="name">Art University</div>
-										<div class="date">2006-2008 <span>|</span> New York</div>
-										<p>
-											Bachelor's Degree in Computer Science ABC Technical Institute, Jefferson, Missouri
-										</p>
-									</div>
-
-									<!-- resume item -->
-									<div class="resume-item">
-										<div class="name">Programming Course</div>
-										<div class="date">2005-2006 <span>|</span> Paris</div>
-										<p>
-											Bachelor's Degree in Computer Science ABC Technical Institute, Jefferson, Missouri
-										</p>
-									</div>
-
-									<!-- resume item -->
-									<div class="resume-item">
-										<div class="name">Web Design Course</div>
-										<div class="date">2004-2005 <span>|</span> London</div>
-										<p>
-											Converted Photoshop layouts to web pages using HTML, CSS, and JavaScript
-										</p>
-									</div>
-
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!--
-						Skills
-					-->
-					<div class="content skills">
-						<div class="row">
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-
-								<!-- title -->
-								<div class="title"><span>Personal</span> Skills</div>
-
-								<!-- skills -->
-								<div class="skills-list card-box">
-									<ul>
-										<li> 
-											<div class="name">Communication</div>
-											<div class="progress">
-												<div class="percentage" style="width:90%;"></div>
-											</div>
-										</li>
-										<li> 
-											<div class="name">Team Work</div>
-											<div class="progress">
-												<div class="percentage" style="width:65%;"></div>
-											</div>
-										</li>
-										<li> 
-											<div class="name">Leadership</div>
-											<div class="progress">
-												<div class="percentage" style="width:75%;"></div>
-											</div>
-										</li>
-										<li>
-											<div class="name">Language</div>
-											<div class="progress">
-												<div class="percentage" style="width:85%;"></div>
-											</div>
-										</li>
-									</ul>
-								</div>
-
-							</div>
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-
-								<!-- title -->
-								<div class="title"><span>Professional</span> Skills</div>
-
-								<!-- skills -->
-								<div class="skills-list card-box">
-									<ul>
-										<li> 
-											<div class="name">WordPress</div>
-											<div class="progress">
-												<div class="percentage" style="width:90%;"></div>
-											</div>
-										</li>
-										<li> 
-											<div class="name">PHP / MYSQL</div>
-											<div class="progress">
-												<div class="percentage" style="width:65%;"></div>
-											</div>
-										</li>
-										<li> 
-											<div class="name">HTML / CSS / JS</div>
-											<div class="progress">
-												<div class="percentage" style="width:95%;"></div>
-											</div>
-										</li>
-										<li>
-											<div class="name">Photoshop</div>
-											<div class="progress">
-												<div class="percentage" style="width:85%;"></div>
-											</div>
-										</li>
-									</ul>
-								</div>
-
-							</div>
-						</div>
-					</div>
-
-				</div>
-				
+	    </div> <!-- //.flexslider -->
+	</section>
+	<!-- End Introduction Section -->
+	<div class="adcenter"><script src="http://www.baisheng999.com/include/new/ggad2_728x90.js"></script></div>
+	<!-- About Section -->
+	<section id="about" class="content-section clearfix">
+	    <div class="container">
+		<div class="row">
+		    <div class="col-md-12">
+			<h2 class="section-title left">What We Do</h2>
+		    </div>
+		</div>
+		<div class="row">
+		    
+		    <div class="col-md-4 animated-item feature-item fadeInUp" data-delay="200">
+			<span class="feature-icon"><i class="li_bulb"></i></span>
+			<div class="feature-info">
+			    <h3 class="feature-title"><span></span>Innovation</h3>
+			    <p>Fusce dolor ante, imperdiet vitae sapien eget, ullamcorper laoreet turpis. Integer posuere dui sapien. Morbi eu aliquam lectus.</p>
 			</div>
+		    </div>
+		    
+		    <div class="col-md-4 animated-item feature-item fadeInUp" data-delay="300">
+			<span class="feature-icon"><i class="li_params"></i></span>
+			<div class="feature-info">
+			    <h3 class="feature-title"><span></span>Management</h3>
+			    <p>Mauris quis egestas ipsum. Suspendisse auctor porttitor eros ut molestie. Proin quis nunc nec turpis ultrices aliquet eget ac neque.</p>
+			</div>
+		    </div>
+		    
+		    <div class="col-md-4 animated-item feature-item fadeInUp" data-delay="400">
+			<span class="feature-icon"><i class="li_heart"></i></span>
+			<div class="feature-info">
+			    <h3 class="feature-title"><span></span>Quick Help</h3>
+			    <p>Integer posuere dui sapien. Morbi eu aliquam lectus. Nam sem arcu, varius nec bibendum egestas, finibus tempus urna.</p>
+			</div>
+		    </div>
+		    
+		</div> <!-- //.row -->
+		
+		<hr class="solid">
+		
+		</div> <!-- //.row -->
+	    </div> <!-- //.container -->
+	</section>
+	<!-- <section id="counter" class="content-section content-overlay parallax-section clearfix">
+		<div class="section-overlay">
+		    <div class="container">
+			<div class="row fadeInUp">
+			    <div class="col-md-3 counter-item">
+				<span class="counter-icon"><i class="li_user"></i></span>
+				<span class="counter-number" data-from="1" data-to="200" data-speed="1000"></span>
+				<span class="counter-text">Satisfied Clients</span>
+			    </div>
+			    
+			    <div class="col-md-3 counter-item">
+				<span class="counter-icon"><i class="li_display"></i></span>
+				<span class="counter-number" data-from="1" data-to="400" data-speed="2000"></span>
+				<span class="counter-text">Projects Delivered</span>
+			    </div>
+			    
+			    <div class="col-md-3 counter-item">
+				<span class="counter-icon"><i class="li_pen"></i></span>
+				<span class="counter-number" data-from="1" data-to="1600" data-speed="3000"></span>
+				<span class="counter-text">Line of Code</span>
+			    </div>
+			    
+			    <div class="col-md-3 counter-item">
+				<span class="counter-icon"><i class="li_bubble"></i></span>
+				<span class="counter-number" data-from="1" data-to="800" data-speed="4000"></span>
+				<span class="counter-text">Questions Answered</span>
+			    </div>
+			</div>
+		    </div>
+		    
+		</div>
+	</section> -->
+	<!-- End About Section -->
+
+	
+	<!-- Testimonials Section -->
+	<section id="testimonials" class="content-section content-overlay parallax-section">
+	    <div class="section-overlay">
+		<div class="container">
+		    <div class="row">
+			<div class="col-md-12">
+			    <div class="flexslider testimonials-slider">
+				<ul class="slides">
+				    <li>
+					<p>Feel free to download responsive templates from templatemo.com website for your personal or commercial projects.</p>
+					<span class="testimonials-author">Kyor Kyor</span>
+				    </li>
+				    <li>
+					<p>Donec quis diam mollis, ornare nunc ut, laoreet nunc. Nullam euismod erat eget mi tincidunt malesuada. Curabitur vel cursus tellus.</p>
+					<span class="testimonials-author">Lynn Lynn</span>
+				    </li>
+				    <li>
+					<p>Nam pellentesque eleifend lectus in commodo. Proin accumsan sodales neque, bibendum tincidunt tellus laoreet vel.</p>
+					<span class="testimonials-author">Htet Htet</span>
+				    </li>
+				    
+				</ul>
+			    </div>
+			</div>
+		    </div>
 		</div>
 		
-		<!-- 
-			Card - Works
-		-->
-		<div class="card-inner" id="works-card">
-			<div class="row card-container">
-				
-				<!--
-					Card Wrap
-				-->
-				<div class="card-wrap col col-m-12 col-t-12 col-d-8 col-d-lg-6" data-simplebar>
-
-					<!-- Work Image -->
-					<div class="card-image col col-m-12 col-t-12 col-d-4 col-d-lg-6" style="background-image: url(/static/images/profile3.jpg);"></div>
-
-					<!--
-						Inner Top
-					-->
-					<div class="content inner-top">
-						<div class="row">
-							<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-								<div class="title-bg">Portfolio</div>
-							</div>
-						</div>
-					</div>
-
-					<!--
-						Works
-					-->
-					<div class="content works">
-						<div class="row">
-							<div class="col col-m-12 col-t-5 col-d-5 col-d-lg-5">
-
-								<!-- title -->
-								<div class="title"><span>My</span> Portfolio</div>
-
-							</div>
-							<div class="col col-m-12 col-t-7 col-d-7 col-d-lg-7">
-
-								<!-- filters -->
-								<div class="filter-menu filter-button-group">
-									<div class="f_btn active">
-										<label><input type="radio" name="fl_radio" value="grid-item" />All</label>
-									</div>
-									<div class="f_btn">
-										<label><input type="radio" name="fl_radio" value="photo" />Photo</label>
-									</div>
-									<div class="f_btn">
-										<label><input type="radio" name="fl_radio" value="video" />Video</label>
-									</div>
-									<div class="f_btn">
-										<label><input type="radio" name="fl_radio" value="music" />Music</label>
-									</div>
-									<div class="f_btn">
-										<label><input type="radio" name="fl_radio" value="design" />Design</label>
-									</div>
-								</div>
-
-							</div>
-						</div>
-
-						<!-- work items -->
-						<div class="row grid-items">
-
-							<!-- work item photo -->
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6 grid-item photo">
-								<div class="box-item card-box">
-									<div class="image">
-										<a href="/static/images/works/work1.jpg" class="has-popup-image">
-											<img src="/static/images/works/work1.jpg" alt="" />
-											<span class="info">
-												<span class="icon la la-camera-retro"></span>
-											</span>
-										</a>
-									</div>
-									<div class="desc">
-										<a href="/static/images/works/work1.jpg" class="name has-popup-image">Motorcycle Helmet</a>
-										<div class="category">Photo</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- work item video -->
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6 grid-item video">
-								<div class="box-item card-box">
-									<div class="image">
-										<a href="" class="has-popup-video">
-											<img src="/static/images/works/work2.jpg" alt="" />
-											<span class="info">
-												<span class="icon la la-video-camera"></span>
-											</span>
-										</a>
-									</div>
-									<div class="desc">
-										<a href="" class="name has-popup-video">Minimalism Shapes</a>
-										<div class="category">Video</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- work item music -->
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6 grid-item music">
-								<div class="box-item card-box">
-									<div class="image">
-										<a href="" class="has-popup-music">
-											<img src="/static/images/works/work3.jpg" alt="" />
-											<span class="info">
-												<span class="icon la la-music"></span>
-											</span>
-										</a>
-									</div>
-									<div class="desc">
-										<a href="#" class="name has-popup">Staircase</a>
-										<div class="category">Music</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- work item design -->
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6 grid-item design">
-								<div class="box-item card-box">
-									<div class="image">
-										<a href="#popup-1" class="has-popup-media">
-											<img src="/static/images/works/work4.jpg" alt="" />
-											<span class="info">
-												<span class="icon la la-image"></span>
-											</span>
-										</a>
-									</div>
-									<div class="desc">
-										<a href="#popup-1" class="name has-popup-media">Mobile Application</a>
-										<div class="category">Design</div>
-									</div>
-									<div id="popup-1" class="popup-box mfp-fade mfp-hide">
-										<div class="content">
-											<div class="image">
-												<img src="/static/images/works/work4.jpg" alt="">
-											</div>
-											<div class="desc">
-												<div class="post-box">
-													<h1>Mobile Application</h1>						
-													<div class="blog-detail">Design</div>
-													<div class="blog-content">
-														<p>
-															So striking at of to welcomed resolved. Northward by described up household therefore 
-															attention. Excellence decisively nay man yet impression for contrasted remarkably.
-														</p>
-														<p>
-															Forfeited you engrossed but gay sometimes explained. Another as studied it to evident. 
-															Merry sense given he be arise. Conduct at an replied removal an amongst. Remaining 
-															determine few her two cordially admitting old.
-														</p>
-														<blockquote>
-															Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia 
-															Curae; Pellentesque suscipit.
-														</blockquote>
-														<p>
-															Tiled say decay spoil now walls meant house. My mr interest thoughts screened of outweigh 
-															removing. Evening society musical besides inhabit ye my. Lose hill well up will he over on. 
-															Increasing sufficient everything men him admiration unpleasing sex.
-														</p>
-														<ul class="list-style">
-															<li>Greatest properly off ham exercise all.</li>
-															<li>Unsatiable invitation its possession nor off.</li>
-															<li>All difficulty estimating unreserved increasing the solicitude.</li>
-														</ul>
-														<p>
-															Unpleasant astonished an diminution up partiality. Noisy an their of meant. Death means 
-															up civil do an offer wound of.
-														</p>
-													</div>
-													<a href="#" class="button">
-														<span class="text">View Project</span>
-														<span class="arrow"></span>
-													</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- work item photo -->
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6 grid-item photo">
-								<div class="box-item card-box">
-									<div class="image">
-										<a href="/static/images/works/work5.jpg" class="has-popup-image">
-											<img src="/static/images/works/work5.jpg" alt="" />
-											<span class="info">
-												<span class="icon la la-camera-retro"></span>
-											</span>
-										</a>
-									</div>
-									<div class="desc">
-										<a href="/static/images/works/work5.jpg" class="name has-popup-image">Gereal Travels</a>
-										<div class="category">Photo</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- work item music -->
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6 grid-item music">
-								<div class="box-item card-box">
-									<div class="image">
-										<a href="" class="has-popup-music">
-											<img src="/static/images/works/work8.jpg" alt="" />
-											<span class="info">
-												<span class="icon la la-music"></span>
-											</span>
-										</a>
-									</div>
-									<div class="desc">
-										<a href="#" class="name has-popup">Daylight Entrance</a>
-										<div class="category">Music</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- work item video -->
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6 grid-item video">
-								<div class="box-item card-box">
-									<div class="image">
-										<a href="" class="has-popup-video">
-											<img src="/static/images/works/work6.jpg" alt="" />
-											<span class="info">
-												<span class="icon la la-video-camera"></span>
-											</span>
-										</a>
-									</div>
-									<div class="desc">
-										<a href="" class="name has-popup-video">Architecture</a>
-										<div class="category">Video</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- work item design -->
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6 grid-item design">
-								<div class="box-item card-box">
-									<div class="image">
-										<a href="#popup-2" class="has-popup-media">
-											<img src="/static/images/works/work7.jpg" alt="" />
-											<span class="info">
-												<span class="icon la la-image"></span>
-											</span>
-										</a>
-									</div>
-									<div class="desc">
-										<a href="#popup-2" class="name has-popup-media">Social Website</a>
-										<div class="category">Design</div>
-									</div>
-									<div id="popup-2" class="popup-box mfp-fade mfp-hide">
-										<div class="content">
-											<div class="image">
-												<img src="/static/images/works/work7.jpg" alt="">
-											</div>
-											<div class="desc">
-												<div class="post-box">
-													<h1>Mobile Application</h1>						
-													<div class="blog-detail">Design</div>
-													<div class="blog-content">
-														<p>
-															So striking at of to welcomed resolved. Northward by described up household therefore 
-															attention. Excellence decisively nay man yet impression for contrasted remarkably.
-														</p>
-														<p>
-															Forfeited you engrossed but gay sometimes explained. Another as studied it to evident. 
-															Merry sense given he be arise. Conduct at an replied removal an amongst. Remaining 
-															determine few her two cordially admitting old.
-														</p>
-														<blockquote>
-															Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia 
-															Curae; Pellentesque suscipit.
-														</blockquote>
-														<p>
-															Tiled say decay spoil now walls meant house. My mr interest thoughts screened of outweigh 
-															removing. Evening society musical besides inhabit ye my. Lose hill well up will he over on. 
-															Increasing sufficient everything men him admiration unpleasing sex.
-														</p>
-														<ul class="list-style">
-															<li>Greatest properly off ham exercise all.</li>
-															<li>Unsatiable invitation its possession nor off.</li>
-															<li>All difficulty estimating unreserved increasing the solicitude.</li>
-														</ul>
-														<p>
-															Unpleasant astonished an diminution up partiality. Noisy an their of meant. Death means 
-															up civil do an offer wound of.
-														</p>
-													</div>
-													<a href="#" class="button">
-														<span class="text">View Project</span>
-														<span class="arrow"></span>
-													</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
+	    </div>
+	</section>
+	<!-- End Testimonials Section -->
+	
+	<!-- login Section -->
+	<section id="login" class="content-section">
+	    <div class="container">
+		<div class="row">
+		    <div class="col-md-12">
+			<h2 class="section-title left">Log in</h2>
+		    </div>
 		</div>
+		<div class="row">
+		    <div class="col-md-6 contact-form">
+			<form id="email-form" action="http://localhost:5000" method="post">
+			    <div class="row">
+				<div class="col-md-6">
+				    <label for="name">Name</label>
+				    <input type="text" class="form-input" name="username" id="username">
+				</div>
+				<div class="col-md-6">
+				    <label for="email">Email</label>
+				    <input type="email" class="form-input" name="email" id="email">
+				</div>
+			    </div>
+			    <div class="row">
+				<div class="col-md-12">
+					<label for="message">Password</label>
+					<input type="text" class="form-input" name="password" id="password">
+				    <!-- <textarea rows="6" id="message" name="message" class="form-input"></textarea> -->
+				</div>
+			    </div>
+			    <div class="row">
+				<div class="col-md-12">
+				    <button class="main-button" type="submit">Log in</button>
+				</div>
+			    </div>
+			</form>
+			
+		    </div>
+		    <div class="col-md-5 col-md-offset-1 contact-info">
+			<h4>Our Office</h4>
+			<p>Fusce viverra tempus lectus nec pretium. Donec pellentesque,
+			tellus sed bibendum placerat, orci diam congue nisi, sed blandit diam
+			turpissit amet dui.
+			</p>
+			
+			<h4>Contact Details</h4>
+			<ul>
+			    <li><i class="fa fa-map-marker"></i>East China Normal University</li>
+			    <li><i class="fa fa-phone"></i>010-020-0340</li>
+			    <li><i class="fa fa-envelope"></i><a href="mailto:info@company.com">info@company.com</a></li>
+			</ul>
+			
+		    </div>
+		</div>
+	    </div>
+	</section>
+	<!-- End Contact Section -->
+	
+	<!-- Hidden Content -->
+	<section id="load-folio" class="folio-details">
+	    <div id="folio-content" class="load-folio-content">
 		
-		<!-- 
-			Card - Blog
-		-->
-		<div class="card-inner" id="blog-card">
-			<div class="row card-container">
-					
-				<!--
-					Card Wrap
-				-->
-				<div class="card-wrap col col-m-12 col-t-12 col-d-8 col-d-lg-6" data-simplebar>
-					
-					<!-- Blog Image -->
-					<div class="card-image col col-m-12 col-t-12 col-d-4 col-d-lg-6" style="background-image: url(/static/images/profile4.jpg);"></div>
-					
-					<!--
-						Inner Top
-					-->
-					<div class="content inner-top">
-						<div class="row">
-							<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-								<div class="title-bg">My Blog</div>
-							</div>
-						</div>
-					</div>
+	    </div>
+	</section>
+	
+        <footer id="footer" class="site-footer" role="contentinfo">
+			<div class="container">
+                <div class="col-md-6 col-sm-6">
+                    <div class="copyright-text">
+                        <span>Team cross-species website <a href="https://daseproject2demo4designthinking.netlify.app/" target="_blank" title="Home page">Home page</a></span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="social-icons">
+                        <ul>
+                            <li><a href="#" class="fa fa-facebook"></a></li>
+                            <li><a href="#" class="fa fa-twitter"></a></li>
+                            <li><a href="#" class="fa fa-linkedin"></a></li>
+                            <li><a href="#" class="fa fa-rss"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+	
+        <!-- JavaScripts -->
+        <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/static/js/plugins.js"></script>
+        <script src="/static/js/custom.js"></script>
 
-					<!--
-						Blog
-					-->
-					<div class="content blog">
-						<div class="row">
-							<div class="col col-m-12 col-t-5 col-d-5 col-d-lg-5">
-
-								<!-- title -->
-								<div class="title"><span>My</span> Blog</div>
-
-							</div>
-							<div class="col col-m-12 col-t-7 col-d-7 col-d-lg-7">
-
-								<!-- filters -->
-								<div class="all-blog">
-									<a href="blog.html">All Blog</a>
-								</div>
-
-							</div>
-						</div>
-
-						<!-- blog items -->
-						<div class="row">
-
-							<!-- blog item -->
-							<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-								<div class="box-item card-box">
-									<div class="image">
-										<a href="blog-post.html">
-											<img src="/static/images/blog/blog1.jpg" alt="" />
-											<span class="info">
-												<span class="icon la la-newspaper-o"></span>
-											</span>
-											<span class="date"><strong>20</strong>Jun</span>
-										</a>
-									</div>
-									<div class="desc">
-										<a href="blog-post.html" class="name">By spite about do of do allow blush</a>
-										<div class="category">Design</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- blog item -->
-							<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-								<div class="box-item card-box">
-									<div class="image">
-										<a href="blog-post.html">
-											<img src="/static/images/blog/blog2.jpg" alt="" />
-											<span class="info">
-												<span class="icon la la-newspaper-o"></span>
-											</span>
-											<span class="date"><strong>19</strong>Jun</span>
-										</a>
-									</div>
-									<div class="desc">
-										<a href="blog-post.html" class="name">Two Before Arrow Not Relied</a>
-										<div class="category">Coding</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- blog item -->
-							<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-								<div class="box-item card-box">
-									<div class="image">
-										<a href="blog-post.html">
-											<img src="/static/images/blog/blog3.jpg" alt="" />
-											<span class="info">
-												<span class="icon la la-newspaper-o"></span>
-											</span>
-											<span class="date"><strong>20</strong>Jun</span>
-										</a>
-									</div>
-									<div class="desc">
-										<a href="blog-post.html" class="name">By spite about do of do allow blush</a>
-										<div class="category">Travel</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-
-					</div> 
-
-				</div>
-					
-			</div>
-		</div>
-		
-		<!-- 
-			Card - Contacts
-		-->
-		<div class="card-inner" id="contacts-card">
-			<div class="row card-container">
-				
-				<!--
-					Card Wrap
-				-->
-				<div class="card-wrap col col-m-12 col-t-12 col-d-8 col-d-lg-6" data-simplebar>
-					
-					<!-- Map -->
-					<div class="card-image col col-m-12 col-t-12 col-d-4 col-d-lg-6">
-						<div class="map" id="map"></div>
-					</div>
-						
-					<!--
-						Inner Top
-					-->
-					<div class="content inner-top">
-						<div class="row">
-							<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-								<div class="title-bg">Contacts</div>
-							</div>
-						</div>
-					</div>
-
-					<!--
-						Contacts Info
-					-->
-					<div class="content contacts-info">
-						<div class="row">
-							<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-
-								<!-- title -->
-								<div class="title"><span>Get</span> in Touch</div>
-
-							</div>
-						</div>
-
-						<!-- contacts items -->
-						<div class="row contacts-items">
-
-							<!-- contacts item -->
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-								<div class="contacts-item card-box">
-									<div class="icon"><i class="la la-map-marker"></i></div>
-									<div class="name">Address</div>
-									<p>
-										XXX
-									</p>
-								</div>
-							</div>
-
-							<!-- contacts item -->
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-								<div class="contacts-item card-box">
-									<div class="icon"><i class="la la-at"></i></div>
-									<div class="name">Email</div>
-									<p>
-										XXX
-									</p>
-								</div>
-							</div>
-
-							<!-- contacts item -->
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-								<div class="contacts-item card-box">
-									<div class="icon"><i class="la la-phone"></i></div>
-									<div class="name">Phone</div>
-									<p>
-										XXX
-									</p>
-								</div>
-							</div>
-
-							<!-- contacts item -->
-							<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-								<div class="contacts-item card-box">
-									<div class="icon"><i class="la la-check-square"></i></div>
-									<div class="name">Freelance</div>
-									<p>
-										Available
-									</p>
-								</div>
-							</div>
-
-						</div>
-
-					</div>
-
-					<!--
-						Contacts Form
-					-->
-					<div class="content contacts-form">
-						<div class="row">
-							<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-
-								<!-- title -->
-								<div class="title"><span>Contact</span> Form</div>
-
-							</div>
-						</div>
-						<div class="row">
-							<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-
-								<!-- form -->
-								<div class="contact_form card-box">
-									<form id="cform" method="post">
-										<div class="row">
-											<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-												<div class="group-val">
-													<input type="text" name="name" placeholder="Full Name" />
-												</div>
-											</div>
-											<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-												<div class="group-val">
-													<input type="text" name="email" placeholder="Email Address" />
-												</div>
-											</div>
-											<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-												<div class="group-val">
-													<textarea name="message" placeholder="Your Message"></textarea>
-												</div>
-											</div>
-										</div>
-										<div class="align-left">
-											<a href="#" class="button" onclick="$('#cform').submit(); return false;">
-												<span class="text">Send Message</span>
-												<span class="icon"><i class="la la-arrow-right"></i></span>
-											</a>
-										</div>
-									</form>
-									<div class="alert-success">
-										<p>Thanks, your message is sent successfully.</p>
-									</div>
-								</div>
-
-							</div>
-						</div>
-					</div>
-
-				</div>
-				
-			</div>
-		</div>
-		
-		<!-- 
-			Lines Grid
-		-->
-		<div class="lines-grid">
-			<div class="row">
-				<div class="col col-m-12 col-t-6 col-d-4 col-d-lg-3"></div>
-				<div class="col col-m-12 col-t-6 col-d-4 col-d-lg-3">
-					<div class="lines">
-						<div class="line-1"></div>
-						<div class="line-2" style="animation-delay: 10s;"></div>
-					</div>
-				</div>
-				<div class="col col-m-12 col-t-6 col-d-4 col-d-lg-3">
-					<div class="lines">
-						<div class="line-1"></div>
-					</div>
-				</div>
-				<div class="col col-m-0 col-t-0 col-d-0 col-d-lg-3">
-					<div class="lines">
-						<div class="line-1"></div>
-						<div class="line-2" style="animation-delay: 0s;"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</div>
-</div>
-
-<script src="/static/js/jquery.min.js"></script>
-<script src="/static/js/jquery.validate.js"></script>
-<script src="/static/js/jquery.magnific-popup.js"></script>
-<script src="/static/js/imagesloaded.pkgd.js"></script>
-<script src="/static/js/masonry.pkgd.js"></script>
-<script src="/static/js/masonry-filter.js"></script>
-<script src="/static/js/simplebar.js"></script>
-<script src="/static/js/typed.js"></script>
-
-<script src="http://ditu.google.cn/maps/api/js?sensor=false"></script>
-
-<script src="/static/js/scripts.js"></script>
-
-</body>
+    </body>
 </html>
