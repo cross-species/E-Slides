@@ -1,6 +1,6 @@
 import os
 
-def callMindMap(input, output, fileCat="html", path = "D:\\E-Slides\\static\\data\\"):
+def callMindMap(input, output, fileCat="html", path = os.path.dirname(os.path.abspath(__file__)) + "/static/data/"):
     # order1 =  "cd " + path
     order2 = "markmap -o \"" + path + output + \
         "." + fileCat + "\" --enable-mathjax --enable-prism --no-open " + path + input + ".md"
@@ -8,7 +8,7 @@ def callMindMap(input, output, fileCat="html", path = "D:\\E-Slides\\static\\dat
     os.system(order2)
 
 
-def startJupyter(path = "D:\\E-Slides\\static\\data\\"):
+def startJupyter(path = os.path.dirname(os.path.abspath(__file__)) + "/static/data/"):
     order1 = "cd " + path
     order2 = "jupyter notebook"
     status = False

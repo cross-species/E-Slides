@@ -141,7 +141,7 @@
                         $("#mindmap").remove()
                         $("#slides").remove()
                         console.log(data)
-                        frames.push('./data/' + data.message + '.html')
+                        // frames.push('./data/' + data.message + '.html')
                         // window.Refresh()
                         var iframe = document.createElement('iframe'); 
                         iframe.src='./static/data/' + data.message + '.html'; 
@@ -149,6 +149,7 @@
                         iframe.height = '640'
                         iframe.id = 'mindmap'
                         document.body.appendChild(iframe);
+                        // renderMathInElement(document.getElementsByClassName('tui-editor-contents'))
                         // editor.setHtml(data['message'], false)
                     }
                 })
