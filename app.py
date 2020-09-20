@@ -71,13 +71,13 @@ def get_file(file_name):
 
 
 # status = False
-@app.route('/test_post/jupyter', methods=['POST'])
+@app.route('/test_post/jupyter', methods=['GET'])
 def new_jupyter():
     pj_path = "D:\\E-Slides\\static\\data\\" # TODO:path is extracted from DB, according to user id
     # if not status:
     #     status = startJupyter(pj_path)
     # if status:
-    file_name = "example" # TODO:file_name is extracted from DB, according to user id
+    file_name = "test" # TODO:file_name is extracted from DB, according to user id
     url = "http://localhost:8889/notebooks/" + file_name + ".ipynb"
     return jsonify({'code': True, 'jupyter_home':"http://localhost:8889/tree", 'jupyter_file': url})
 
@@ -85,7 +85,7 @@ def new_jupyter():
 @app.route('/test_post/slides', methods=['POST'])
 def post_slides():
     print(request.form['data'])
-    md_name = "example"
+    md_name = "test"
     save_md(request.form['data'], md_name)
     sld_name = md_name + "_slides_"+ str(time.time())
     callSlides(md_name, sld_name, file_type='html', style='slidy')
@@ -111,9 +111,6 @@ def project():
 #     # api = form['api']
 #     print(form.data)
 #     return 'Successfully sent {}'.format(form.data[1:-1])
-
-
-
 
 # @app.route('/custom', methods=['GET', 'POST'])
 # def custom():
