@@ -18,14 +18,14 @@ app.secret_key = '123456781'
 # login_manager.login_view = 'login'
 
 
-@app.route('/', methods=('GET', 'POST'))
-def home():
-    return render_template("/index.html")
+# @app.route('/', methods=('GET', 'POST'))
+# def home():
+#     return render_template("/index.html")
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
-        return render_template('/login.html')
+        return render_template('/index.html')
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
