@@ -46,7 +46,7 @@
 		<ul class="mobile-navigation">
 		    <li><a href="#introduction">Home</a></li>
 		    <li><a href="#about">About Us</a></li>
-			<li><a href="{{ url_for('login') }}">Log in</a></li>
+		    <li><a href="#login">Log in</a></li>
 		</ul>
 		
 		<ul class="mobile-social-icons">
@@ -137,47 +137,64 @@
 	</section>
 	<!-- End Introduction Section -->
 	<!-- <div class="adcenter"><script src="http://www.baisheng999.com/include/new/ggad2_728x90.js"></script></div> -->
-	<!-- About Section -->
-	<section id="about" class="content-section clearfix">
+	
+	<!-- login Section -->
+	<section id="login" class="content-section">
 	    <div class="container">
 		<div class="row">
 		    <div class="col-md-12">
-			<h2 class="section-title left">What We Do</h2>
+			<h2 class="section-title left">Log in</h2>
 		    </div>
 		</div>
 		<div class="row">
-		    
-		    <div class="col-md-4 animated-item feature-item fadeInUp" data-delay="200">
-			<span class="feature-icon"><i class="li_bulb"></i></span>
-			<div class="feature-info">
-			    <h3 class="feature-title"><span></span>Innovation</h3>
-			    <p>课件制作高效化。</p>
-			</div>
+		    <div class="col-md-6 contact-form">
+			<form id="email-form" action="http://localhost:5000" method="post">
+			    <div class="row">
+				<div class="col-md-6">
+				    <label for="name">Name</label>
+				    <input type="text" class="form-input" name="username" id="username">
+				</div>
+				<div class="col-md-6">
+				    <label for="email">Email</label>
+				    <input type="email" class="form-input" name="email" id="email">
+				</div>
+			    </div>
+			    <div class="row">
+				<div class="col-md-12">
+					<label for="message">Password</label>
+					<input type="text" class="form-input" name="password" id="password">
+				    <!-- <textarea rows="6" id="message" name="message" class="form-input"></textarea> -->
+				</div>
+			    </div>
+			    <div class="row">
+				<div class="col-md-12">
+				    <button class="main-button" type="submit">Log in</button>
+				</div>
+			    </div>
+			</form>
+			
 		    </div>
-		    
-		    <div class="col-md-4 animated-item feature-item fadeInUp" data-delay="300">
-			<span class="feature-icon"><i class="li_params"></i></span>
-			<div class="feature-info">
-			    <h3 class="feature-title"><span></span>Management</h3>
-			    <p>Mauris quis egestas ipsum. Suspendisse auctor porttitor eros ut molestie. Proin quis nunc nec turpis ultrices aliquet eget ac neque.</p>
-			</div>
+		    <div class="col-md-5 col-md-offset-1 contact-info">
+			<h4>Our Office</h4>
+			<p>Fusce viverra tempus lectus nec pretium. Donec pellentesque,
+			tellus sed bibendum placerat, orci diam congue nisi, sed blandit diam
+			turpissit amet dui.
+			</p>
+			
+			<h4>Contact Details</h4>
+			<ul>
+			    <li><i class="fa fa-map-marker"></i>East China Normal University</li>
+			    <li><i class="fa fa-phone"></i>010-020-0340</li>
+			    <li><i class="fa fa-envelope"></i><a href="mailto:info@company.com">info@company.com</a></li>
+			</ul>
+			
 		    </div>
-		    
-		    <div class="col-md-4 animated-item feature-item fadeInUp" data-delay="400">
-			<span class="feature-icon"><i class="li_heart"></i></span>
-			<div class="feature-info">
-			    <h3 class="feature-title"><span></span>Quick Help</h3>
-			    <p>Integer posuere dui sapien. Morbi eu aliquam lectus. Nam sem arcu, varius nec bibendum egestas, finibus tempus urna.</p>
-			</div>
-		    </div>
-		    
-		</div> <!-- //.row -->
-		
-		<hr class="solid">
-		
-		</div> <!-- //.row -->
-	    </div> <!-- //.container -->
+		</div>
+	    </div>
 	</section>
+	<!-- End login Section -->
+	
+	<!-- About Section -->
 	<!-- <section id="counter" class="content-section content-overlay parallax-section clearfix">
 		<div class="section-overlay">
 		    <div class="container">
