@@ -1,13 +1,13 @@
 import os
 
-def callMindMap_once(id, output, fileCat="html"):
+def callMindMap(input, output, fileCat="html"):
     
-    order = "markmap -o \"D:\\E-Slides\\" + output + \
-        "." + fileCat + "\" --enable-mathjax --enable-prism --no-open " + id + ".md"
+    order = "markmap -o \"D:\\E-Slides\\static\\data\\" + output + \
+        "." + fileCat + "\" --enable-mathjax --enable-prism --no-open " + input + ".md"
     os.system(order)
 
-def startJupyter():
-    order1 = "cd D:\\E-Slides\\"
+def startJupyter(path = "D:\\E-Slides\\"):
+    order1 = "cd " + path
     order2 = "jupyter notebook"
     status = False
     if(not status):
@@ -20,10 +20,6 @@ def startJupyter():
 def callSlides(id, output):
     order = "pandoc "+id+".md -o "+output+".html -t slidy -s"
     os.system()
-
-
-
-
 
 
 output = "test_out"
