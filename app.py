@@ -28,6 +28,11 @@ def login():
     # elif not password:
     #     error = 'Password is required.'
 
+    if username == "abc" and password == "abc":
+        return f"<html><body>Welcome {username}</body></html>"
+    else:
+        return f"<html><body>Welcome!</body></html>"
+
     ##############不管用户名密码是什么都login#############
     # elif db.execute(
     #     'SELECT id FROM user WHERE username = ?', (username,)
@@ -44,7 +49,7 @@ def login():
 
     # flash(error)
 
-    return render_template('md.html', text='text')
+    return render_template('/.html')
 
 @app.route('/test_post/mindmap', methods=['POST'])
 def test_post_mindmap():
