@@ -22,9 +22,4 @@ def callSlides(id, output):
     os.system()
 
 
-output = "test_out"
-fileCat = "txt"
-id = "test"
-
-callMindMap_once(id, output, fileCat)
 

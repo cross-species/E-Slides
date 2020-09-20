@@ -3,7 +3,7 @@ from flask import flash, abort, Flask, jsonify, render_template, redirect, url_f
 from flask_wtf.form import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, IntegerField, SubmitField, TextAreaField, Form
 from wtforms.validators import Length, DataRequired, Optional
-from call.py import *
+from call import *
 # import flask_login
 # from
 
@@ -18,10 +18,14 @@ app.secret_key = '123456781'
 # login_manager.login_view = 'login'
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=('GET', 'POST'))
+def home():
+    return render_template("/index.html")
+
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
-        return render_template('/index.html')
+        return render_template('/login.html')
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -72,7 +76,7 @@ def post_mindmap():
     return jsonify({'code': True, 'message': 'example'})
 
 
-@app.route('/test_post/jupyter', method=['POST'])
+@app.route('/test_post/jupyter', methods=['POST'])
 def post_jupyter():
     startJupyter()
     if request.method == 'GET':

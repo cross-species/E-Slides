@@ -18,12 +18,18 @@
     <div id="layout" class="editor">
         <div id="editor">
             <textarea style="display:none;">### Hello Editor.md !</textarea>
-       </div>
+        </div>
+       <!-- <textarea id="editor" style="display:none;">### Hello Editor.md !</textarea> -->
     </div>
+
+    <label for="md_upload">Choose a existed markdown file(Optional): </label>
+    <input type="file" id="md_upload" name="md_upload" accept="markdown/md">
+
     <form>
         <input type="button" id="mindmapButton" value="mindmap">
         <input type="button" id="slidesButton" value="slides">
     </form>
+
     {% for iframe_path in context %}
         <!-- <iframe>My name is {{ context.myname }}</iframe> -->
         <iframe name="my-iframe" id="my-iframe" src= {{ iframe_path }} frameborder="0" width="50%" height="50%" scrolling="yes"></iframe>
@@ -32,6 +38,20 @@
 
         
     <script src="/static/js/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        document.getElementById('md_upload') 
+            .addEventListener('change', function() { 
+              
+            var fr=new FileReader(); 
+            fr.onload=function(){ 
+                editor.setMarkdown(fr.result); 
+            } 
+              
+            fr.readAsText(this.files[0]); 
+        }) 
+    </script>
+
     <script>
         // const Editor = toastui.Editor;
         // const editor = new Editor({
