@@ -1,4 +1,5 @@
 import os
+import time
 
 def callMindMap(input, output, fileCat="html", path = os.path.dirname(os.path.abspath(__file__)) + "/static/data/"):
     # order1 =  "cd " + path
@@ -27,7 +28,7 @@ def callSlides(input, output, file_type='html', style='slidy'):
         file_type - output file type ('html' / 'pdf')
         style - output file's style
     '''
-    order = "pandoc D:/E-Slides/static/data/" + input + ".md -o D:/E-Slides/static/data/" + output + "." + file_type + " -t " + style + " -s"
+    order = "pandoc " + os.path.dirname(os.path.abspath(__file__)) + "/static/data/" + input + ".md -o " + os.path.dirname(os.path.abspath(__file__)) + "/static/data/" + output + "." + file_type + " -t " + style + " -s"
     # order = "pandoc "+input+".md -o "+output+".html -t slidy -s"
     os.system(order)
     return output
@@ -38,11 +39,11 @@ def save_md(content, input_name='example'):
         content
         input_name - The file where we wanna save the context
     Output:
-        input_name
+        { input_name }_{ current time } - e.g: example_1600621720.606119
     '''
-    md_name = input_name # TODO:file_name is extracted from DB
-    with open("D:/E-Slides/static/data/" + md_name + ".md", "w") as f:
+    md_name = input_name + '_' + str(time.time()) # TODO:file_name is extracted from DB
+    with open(os.path.dirname(os.path.abspath(__file__)) + "/static/data/" + md_name + ".md", "w") as f:
         f.write(content)
         f.close()
-    return input_name
+    return md_name
 

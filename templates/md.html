@@ -7,12 +7,10 @@
         <link rel="stylesheet" href="/static/editor.md/css/editormd.min.css" />
         <script type="text/javascript" src="/static/js/jquery.min.js"></script>
         <script src="/static/editor.md/editormd.min.js"></script>
-    <!-- <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css"/>
-    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script> -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
     <!-- <div id="editor" style='height : 100%'></div> -->
 
     <div id="layout" class="editor">
@@ -30,6 +28,7 @@
         <input type="button" id="slidesButton" value="slides">
         <input type="button" id="jupyter_new" value="Create a new jupyter notebook">
         <input type="button" id='jupyter_my_own' value='Open my jupyter notebook'>
+        <input type="button" id='fullscreen' value='Full Screen'>
     </form>
 
     {% for iframe_path in context %}
@@ -84,6 +83,8 @@
             jupyter_new_button.onclick = jupyter_CreateNew;
             var jupyter_new_button = document.getElementById('jupyter_my_own');
             jupyter_new_button.onclick = jupyter_UseMyOwn;
+            // var fullscreen_button = document.getElementById('fullscreen');
+            // fullscreen_button.onclick = 
         }
 
         var frames = []
@@ -115,11 +116,15 @@
                         iframe.src='./show/' + data.message + '.html'; 
                         iframe.width = '100%'
                         iframe.height = '640'
+                        iframe.webkitallowfullscreen = ""
+                        iframe.mozallowfullscreen = ""
+                        iframe.allowfullscreen = ""
                         console.log(iframe.height)
                         iframe.id = 'mindmap'
                         console.log(iframe)
                         // iframe.onload = 
                         document.body.appendChild(iframe);
+                        renderMathInElement(document.getElementById('mindmap'))
                         // editor.setHtml(data['message'], false)
                     }
                 })
@@ -153,10 +158,12 @@
                         iframe.src='./show/' + data.message + '.html'; 
                         iframe.width = '100%'
                         iframe.height = '640'
-                        iframe.id = 'mindmap'
+                        iframe.webkitallowfullscreen = ""
+                        iframe.mozallowfullscreen = ""
+                        iframe.allowfullscreen = ""
+                        iframe.id = 'slides'
                         document.body.appendChild(iframe);
-                        // renderMathInElement(document.getElementsByClassName('tui-editor-contents'))
-                        // editor.setHtml(data['message'], false)
+                        renderMathInElement(document.getElementById('slides'))
                     }
                 })
             }
@@ -194,20 +201,66 @@
             })
         }
 
+        $(function(){
+            //全屏
+            $("#fullscreen").on("click",function(){
+                fullScreen();
+            })
+            //退出全屏
+            $("#exitFullScreen").on("click",function(){
+                exitFullscreen();
+            })
+        })
 
-        // Katex auto-render
-        // document.addEventListener("DOMContentLoaded", function() {
-        //     renderMathInElement(document.getElementsByClassName('tui-editor-contents')[0], {
-        //         // ...options...
-                
-        //     });
-        // });
-        // document.addEventListener("DOMContentLoaded", function() {
-        //     renderMathInElement(document.getElementsByClassName('tui-editor-contents')[0], {
-        //         // ...options...
-                
-        //     });
-        // });
+        //fullScreen()和exitScreen()有多种实现方式，此处只使用了其中一种
+        //全屏
+        function fullScreen() {
+            if( $("#slides").length>0){
+                var element = document.getElementById('slides');
+            }else if($("#mindmap").length>0){
+                var element = document.getElementById('mindmap');
+            }else{
+                console.log('Error')
+                return
+            }
+            
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.msRequestFullscreen) {
+                element.msRequestFullscreen();
+            } else if (element.mozRequestFullScreen) {
+                element.mozRequestFullScreen();
+            } else if (element.webkitRequestFullscreen) {
+                element.webkitRequestFullscreen();
+            }
+        }
+
+        //退出全屏 
+        function exitFullscreen() {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            }
+        }
+
+        //监听window是否全屏，并进行相应的操作,支持esc键退出
+        window.onresize = function() {
+            var isFull=!!(document.webkitIsFullScreen || document.mozFullScreen || 
+                document.msFullscreenElement || document.fullscreenElement
+            );//!document.webkitIsFullScreen都为true。因此用!!
+            if (isFull==false) {
+                $("#exitFullScreen").css("display","none");
+                $("#fullScreen").css("display","");
+            }else{
+                $("#exitFullScreen").css("display","");
+                $("#fullScreen").css("display","none");
+            }
+        }
     </script>
 
 

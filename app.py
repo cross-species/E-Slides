@@ -53,8 +53,8 @@ def post_mindmap():
     # with open("static/data/" + md_name + ".md", "w") as f:
     #     f.write(request.form['data'])
     # f.close()
-    save_md(request.form['data'], md_name)
-    mmp_name = md_name + "_mindmap_"+str(time.time())
+    md_name = save_md(request.form['data'], md_name)
+    mmp_name = md_name + "_mindmap"
     callMindMap(md_name, mmp_name)
     return jsonify({'code': True, 'message': mmp_name})
 
@@ -89,8 +89,8 @@ def new_jupyter():
 def post_slides():
     print(request.form['data'])
     md_name = "example"
-    save_md(request.form['data'], md_name)
-    sld_name = md_name + "_slides_"+ str(time.time())
+    md_name = save_md(request.form['data'], md_name)
+    sld_name = md_name + "_slides"
     callSlides(md_name, sld_name, file_type='html', style='slidy')
     return jsonify({'code': True, 'message': sld_name})
 
