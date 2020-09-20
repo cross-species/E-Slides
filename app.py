@@ -16,10 +16,13 @@ app.secret_key = '123456781'
 # login_manager.init_app(app)
 # login_manager.login_view = 'login'
 
-@app.route('/', methods=('GET', 'POST'))
+@app.route('/', methods=['GET', 'POST'])
 def login():
-    # username = request.form['username']
-    # password = request.form['password']
+    if request.method == 'GET':
+        return render_template('/index.html')
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
     # # db = get_db()
     # # error = None
 
@@ -28,28 +31,33 @@ def login():
     # elif not password:
     #     error = 'Password is required.'
 
-    if username == "abc" and password == "abc":
-        return f"<html><body>Welcome {username}</body></html>"
-    else:
-        return f"<html><body>Welcome!</body></html>"
+        if username == "abc" and password == "abc":
+            return f"<html><body>Welcome {username}</body></html>"
+        else:
+            return f"<html><body>Welcome!</body></html>"
 
-    ##############不管用户名密码是什么都login#############
-    # elif db.execute(
-    #     'SELECT id FROM user WHERE username = ?', (username,)
-    # ).fetchone() is not None:
-    #     error = 'User {} is already registered.'.format(username)
+@app.route('/md', methods=['GET', 'POST'])
+def markdown():
+    if request.method == 'GET':
+        return render_template('/md.html')
+    # if request.method == 'POST':
+    #     username = request.form['username']
+    #     password = request.form['password']
+    # # # db = get_db()
+    # # # error = None
 
-    # if error is None:
-    #     db.execute(
-    #         'INSERT INTO user (username, password) VALUES (?, ?)',
-    #         (username, generate_password_hash(password))
-    #     )
-    #     db.commit()
-    #     return redirect(url_for('auth.login'))
+    # # if not username:
+    # #     error = 'Username is required.'
+    # # elif not password:
+    # #     error = 'Password is required.'
 
-    # flash(error)
+    #     if username == "abc" and password == "abc":
+    #         return f"<html><body>Welcome {username}</body></html>"
+    #     else:
+    #         return f"<html><body>Welcome!</body></html>"
 
-    return render_template('/.html')
+
+    
 
 @app.route('/test_post/mindmap', methods=['POST'])
 def test_post_mindmap():
@@ -62,11 +70,12 @@ def test_post_mindmap():
 
 @app.route('/test_post/slides', methods=['POST'])
 def test_post_slides():
-    print(request)
+    print(request.form['data'])
     from lxml import etree
     # f = open("./data/" + "example" + ".html","r",encoding="utf-8") #读取文件
     # f = f.read()
     # html = etree.HTML(f)
+    
     return jsonify({'code' : True,'message' : 'example16a'})
 
 # class MockCreate(Form):

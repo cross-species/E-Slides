@@ -1101,6 +1101,7 @@ pre code {
   }
 
   .col-md-12 {
+    float: right;
     width: 100%;
   }
 
