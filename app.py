@@ -89,8 +89,8 @@ def new_jupyter():
     #     status = startJupyter(pj_path)
     # if status:
     file_name = "test" # TODO:file_name is extracted from DB, according to user id
-    url = "http://localhost:8889/notebooks/" + file_name + ".ipynb"
-    return jsonify({'code': True, 'jupyter_home':"http://localhost:8889/tree", 'jupyter_file': url})
+    url = "http://47.97.127.121:8889/notebooks/" + file_name + ".ipynb"
+    return jsonify({'code': True, 'jupyter_home':"http://47.97.127.121:8889/tree", 'jupyter_file': url})
 
 
 @app.route('/test_post/slides', methods=['POST'])
@@ -110,4 +110,4 @@ def project():
 
 
 if __name__ == "__main__":
-    app.run(port=5010, debug=True)
+    app.run(host='0.0.0.0', port=5000)
