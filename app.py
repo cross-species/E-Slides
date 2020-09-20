@@ -21,10 +21,6 @@ app.secret_key = '123456781'
 # login_manager.login_view = 'login'
 
 
-# @app.route('/', methods=('GET', 'POST'))
-# def home():
-#     return render_template("/index.html")
-
 @app.route('/', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
@@ -54,12 +50,12 @@ def markdown():
 def post_mindmap():
     print(request.form['data'])
     md_name = "example" # TODO:file_name is extracted from DB
-    with open("static/data/" + md_name + ".md", "w") as f:
-        f.write(request.form['data'])
-    f.close()
-    mmp_name = md_name + str(time.time())
+    # with open("static/data/" + md_name + ".md", "w") as f:
+    #     f.write(request.form['data'])
+    # f.close()
+    save_md(request.form['data'], md_name)
+    mmp_name = md_name + "_mindmap_"+str(time.time())
     callMindMap(md_name, mmp_name)
-    # file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename
     return jsonify({'code': True, 'message': mmp_name})
 
 @ app.route("/show/<file_name>", methods=['GET'])
@@ -77,27 +73,26 @@ def get_file(file_name):
         return jsonify({"code": "异常", "message": "{}".format(e)})
 
 
-status = False
+# status = False
 @app.route('/test_post/jupyter', methods=['POST'])
 def new_jupyter():
     pj_path = path = os.path.dirname(os.path.abspath(__file__)) + "/static/data/" # TODO:path is extracted from DB, according to user id
-    if not status:
-        status = startJupyter(pj_path)
-    if status:
-        file_name = "example" # TODO:file_name is extracted from DB, according to user id
-        url = "http://localhost:8889/notebooks/" + file_name + ".ipynb"
-        return jsonify({'code': True, 'jupyter_home':"http://localhost:8889/tree", 'jupyter_file': url})
+    # if not status:
+    #     status = startJupyter(pj_path)
+    # if status:
+    file_name = "example" # TODO:file_name is extracted from DB, according to user id
+    url = "http://localhost:8889/notebooks/" + file_name + ".ipynb"
+    return jsonify({'code': True, 'jupyter_home':"http://localhost:8889/tree", 'jupyter_file': url})
 
 
 @app.route('/test_post/slides', methods=['POST'])
 def post_slides():
     print(request.form['data'])
-    # from lxml import etree
-    # f = open("./data/" + "example" + ".html","r",encoding="utf-8") #读取文件
-    # f = f.read()
-    # html = etree.HTML(f)
-    return jsonify({'code': True, 'message': 'example16a'})
-
+    md_name = "example"
+    save_md(request.form['data'], md_name)
+    sld_name = md_name + "_slides_"+ str(time.time())
+    callSlides(md_name, sld_name, file_type='html', style='slidy')
+    return jsonify({'code': True, 'message': sld_name})
 
 @app.route('/projects', methods=('GET', 'POST'))
 def project():
