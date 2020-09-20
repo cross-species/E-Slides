@@ -36,7 +36,9 @@ A Teacher is responsible for preparing lesson plans and educating students at al
 
   *Equation eg.*
 
-  $$L(y,f(x)) = (y-f(x))^2$$
+  $$
+  L(y,f(x)) = (y-f(x))^2
+  $$
   
   
   
@@ -77,4 +79,5 @@ Tables, graphs, and images
 | Faculty of Informatics | 1716     | 2904  | 59.09 |
 | Faculty of Science     | 786      | 5275  | 14.90 |
 | Faculty of Arts        | 64       | 4591  | 1.39  |
+
 
