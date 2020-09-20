@@ -43,10 +43,11 @@
 		<button type="button" class="close" aria-hidden="true"><span>Close</span>&times;</button>
 	    </div>
 	   
-		<ul class="mobile-navigation">
-		    <li><a href="#introduction">Home</a></li>
-		    <li><a href="#about">About Us</a></li>
-			<li><a href="#about">login</a></li>
+		<!-- <ul class="mobile-navigation"> -->
+            <ul>
+		    <li><a href="{{ url_for('home') }}">Home</a></li>
+		    <li><a href="https://daseproject2demo4designthinking.netlify.app/">About Us</a></li>
+			<li><a href="{{ url_for('login') }}">login</a></li>
 		</ul>
 		
 		<ul class="mobile-social-icons">
@@ -72,9 +73,9 @@
 		    <div class="col-md-8">
 			<nav id="navigation" class="hidden-sm hidden-xs">
 			    <ul id="main-nav" class="main-navigation">
-				<li class="current"><a href="#introduction">Home</a></li>
-				<li><a href="#about">About Us</a></li>
-				<li><a href="#about">login</a></li>
+				<li class="current"><a href="{{ url_for('home') }}">Home</a></li>
+				<li><a href="https://daseproject2demo4designthinking.netlify.app/">About Us</a></li>
+				<li><a href="{{ url_for('login') }}">login</a></li>
 			    </ul>
 			</nav>
 			
@@ -102,7 +103,7 @@
 					    E-slides<br>
 					    - Created by TEAM-cross-species 
 					</h2>
-					<a class="slide-button">Read More</a>
+					<a class="slide-button" href="https://github.com/cross-species/E-Slides/tree/master">Read More</a>
 				    </div>
 				</div>
 			    </div>
@@ -118,7 +119,7 @@
 					<h2>
 					    课件自动生成
 					</h2>
-					<a class="slide-button">Get Started</a>
+					<a class="slide-button" href="{{ url_for('login') }}">Get Started</a>
 				    </div>
 				</div>
 			    </div>
@@ -251,61 +252,6 @@
 	<!-- End Testimonials Section -->
 	
 	
-	<!-- login Section -->
-	<section id="login" class="content-section">
-	    <div class="container">
-		<div class="row">
-		    <div class="col-md-12">
-			<h2 class="section-title left">Log in</h2>
-		    </div>
-		</div>
-		<div class="row">
-		    <div class="col-md-6 contact-form">
-			<form id="email-form" action="http://localhost:5000/projects" method="post">
-			    <div class="row">
-				<div class="col-md-6">
-				    <label for="name">Name</label>
-				    <input type="text" class="form-input" name="username" id="username">
-				</div>
-				<div class="col-md-6">
-				    <label for="email">Email</label>
-				    <input type="email" class="form-input" name="email" id="email">
-				</div>
-			    </div>
-			    <div class="row">
-				<div class="col-md-12">
-					<label for="message">Password</label>
-					<input type="text" class="form-input" name="password" id="password">
-				    <!-- <textarea rows="6" id="message" name="message" class="form-input"></textarea> -->
-				</div>
-			    </div>
-			    <div class="row">
-				<div class="col-md-12">
-				    <button class="main-button" type="submit">Log in</button>
-				</div>
-			    </div>
-			</form>
-			
-		    </div>
-		    <div class="col-md-5 col-md-offset-1 contact-info">
-			<h4>Our Office</h4>
-			<p>Fusce viverra tempus lectus nec pretium. Donec pellentesque,
-			tellus sed bibendum placerat, orci diam congue nisi, sed blandit diam
-			turpissit amet dui.
-			</p>
-			
-			<h4>Contact Details</h4>
-			<ul>
-			    <li><i class="fa fa-map-marker"></i>East China Normal University</li>
-			    <li><i class="fa fa-phone"></i>010-020-0340</li>
-			    <li><i class="fa fa-envelope"></i><a href="mailto:info@company.com">info@company.com</a></li>
-			</ul>
-			
-		    </div>
-		</div>
-	    </div>
-	</section>
-	<!-- End login Section -->
 	
 	<!-- Hidden Content -->
 	<section id="load-folio" class="folio-details">

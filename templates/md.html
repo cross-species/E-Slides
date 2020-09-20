@@ -172,17 +172,9 @@
         function jupyter_UseMyOwn(e){
             $.ajax({
                 url: "/test_post/jupyter",
-                type: "POST",
-                dataType: "json",
-                data: {
-                    'signal' : true,
-                    'data' : textInput
-                },
+                type: "GET",
                 success: function (data) {
-                    // $("#mindmap").remove()
-                    // $("#slides").remove()
-                    console.log(data)
-                    window.open(data.jupyter_home);
+                    console.log(data.jupyter_file)
                     window.open(data.jupyter_file);
                 }
             })
@@ -193,9 +185,7 @@
                 url: "/test_post/jupyter",
                 type: "GET",
                 success: function (data) {
-                    // $("#mindmap").remove()
-                    // $("#slides").remove()
-                    console.log(data)
+                    console.log(data.jupyter_home)
                     window.open(data.jupyter_home);  // fuzhi untitled.ipynb
                 }
             })

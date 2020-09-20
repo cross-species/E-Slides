@@ -21,10 +21,15 @@ app.secret_key = '123456781'
 # login_manager.login_view = 'login'
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
+def home():
+    return render_template('/index.html')
+
+
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
-        return render_template('/index.html')
+        return render_template('/login.html')
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -77,13 +82,13 @@ def get_file(file_name):
 
 
 # status = False
-@app.route('/test_post/jupyter', methods=['POST'])
+@app.route('/test_post/jupyter', methods=['GET'])
 def new_jupyter():
     pj_path = path = os.path.dirname(os.path.abspath(__file__)) + "/static/data/" # TODO:path is extracted from DB, according to user id
     # if not status:
     #     status = startJupyter(pj_path)
     # if status:
-    file_name = "example" # TODO:file_name is extracted from DB, according to user id
+    file_name = "test" # TODO:file_name is extracted from DB, according to user id
     url = "http://localhost:8889/notebooks/" + file_name + ".ipynb"
     return jsonify({'code': True, 'jupyter_home':"http://localhost:8889/tree", 'jupyter_file': url})
 
