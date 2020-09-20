@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<head>
+    <title>front end is so fucking difficult!!</title>
+</head>
+<body style="height : 150%">
+    <!-- <body style="overflow:hidden"> -->
+        <link rel="stylesheet" href="/static/editor.md/css/editormd.min.css" />
+        <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+        <script src="/static/editor.md/editormd.min.js"></script>
+    <!-- <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css"/>
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script> -->
+    <!-- <div id="editor" style='height : 100%'></div> -->
+
+    <div id="layout" class="editor">
+        <div id="editor">
+            <textarea style="display:none;">### Hello Editor.md !</textarea>
+       </div>
+    </div>
+    <form>
+        <input type="button" id="mindmapButton" value="mindmap">
+        <input type="button" id="slidesButton" value="slides">
+    </form>
+    {% for iframe_path in context %}
+        <!-- <iframe>My name is {{ context.myname }}</iframe> -->
+        <iframe name="my-iframe" id="my-iframe" src= {{ iframe_path }} frameborder="0" width="50%" height="50%" scrolling="yes"></iframe>
+        <!-- <p>The word is {{ context.myword }}</p> -->
+    {% endfor %}
+
+        
+    <script src="/static/js/jquery.min.js"></script>
+    <script>
+        // const Editor = toastui.Editor;
+        // const editor = new Editor({
+        //     el: document.querySelector('#editor'),
+        //     height: '500px',
+        //     initialEditType: 'markdown',
+        //     previewStyle: 'vertical'
+        // });
+
+        // editor.getHtml();
+        
+        var editor = editormd("editor", {
+            width: "100%",
+            height: "640",
+            tex : true,
+            // markdown: "xxxx",     // dynamic set Markdown text
+            path : "/static/editor.md/lib/"  // Autoload modules mode, codemirror, marked... dependents libs path
+        });
+
+        window.onload = init;
+
+        function init() {
+            var mindmap_button = document.getElementById("mindmapButton");
+            mindmap_button.onclick = mindmap_handleButtonClick;
+            var slides_button = document.getElementById("slidesButton");
+            slides_button.onclick = slides_handleButtonClick;
+        }
+
+        var frames = []
+        
+        function mindmap_handleButtonClick(e) {
+            var textInput = editor.getMarkdown();
+            
+
+            if (textInput == "") {
+                alert("Please enter something");
+            }
+            else {
+                // alert(textInput);
+                $.ajax({
+                    url: "test_post/mindmap",
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        'signal' : true,
+                        'data' : textInput
+                    },
+                    success: function (data) {
+                        $("#mindmap").remove()
+                        $("#slides").remove()
+                        console.log(data)
+                        frames.push('./data/' + data.message + '.html')
+                        // window.Refresh()
+                        var iframe = document.createElement('iframe'); 
+                        iframe.src='./static/data/' + data.message + '.html'; 
+                        iframe.width = '100%'
+                        iframe.height = '640'
+                        console.log(iframe.height)
+                        iframe.id = 'mindmap'
+                        // iframe.onload = 
+                        document.body.appendChild(iframe);
+                        // editor.setHtml(data['message'], false)
+                    }
+                })
+            }
+        }
+
+        function slides_handleButtonClick(e) {
+            var textInput = editor.getMarkdown();
+            
+
+            if (textInput == "") {
+                alert("Please enter something");
+            }
+            else {
+                // alert(textInput);
+                $.ajax({
+                    url: "test_post/slides",
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        'signal' : true,
+                        'data' : textInput
+                    },
+                    success: function (data) {
+                        $("#mindmap").remove()
+                        $("#slides").remove()
+                        console.log(data)
+                        frames.push('./data/' + data.message + '.html')
+                        // window.Refresh()
+                        var iframe = document.createElement('iframe'); 
+                        iframe.src='./static/data/' + data.message + '.html'; 
+                        iframe.width = '100%'
+                        iframe.height = '640'
+                        iframe.id = 'mindmap'
+                        document.body.appendChild(iframe);
+                        // editor.setHtml(data['message'], false)
+                    }
+                })
+            }
+        }
+
+        // Katex auto-render
+        // document.addEventListener("DOMContentLoaded", function() {
+        //     renderMathInElement(document.getElementsByClassName('tui-editor-contents')[0], {
+        //         // ...options...
+                
+        //     });
+        // });
+        // document.addEventListener("DOMContentLoaded", function() {
+        //     renderMathInElement(document.getElementsByClassName('tui-editor-contents')[0], {
+        //         // ...options...
+                
+        //     });
+        // });
+    </script>
+
+
+</body>
