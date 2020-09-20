@@ -28,7 +28,10 @@ def callSlides(input, output, file_type='html', style='slidy'):
         file_type - output file type ('html' / 'pdf')
         style - output file's style
     '''
-    order = "pandoc " + os.path.dirname(os.path.abspath(__file__)) + "/static/data/" + input + ".md -o " + os.path.dirname(os.path.abspath(__file__)) + "/static/data/" + output + "." + file_type + " -t " + style + " -s"
+    if style == 'slidy':
+        order = "pandoc " + os.path.dirname(os.path.abspath(__file__)) + "/static/data/" + input + ".md -o " + os.path.dirname(os.path.abspath(__file__)) + "/static/data/" + output + "." + file_type + " -t " + style + " -s"
+    if style == 'beamer':
+        order = "pandoc " + os.path.dirname(os.path.abspath(__file__)) + "/static/data/" + input + ".md -s -t s5 -V s5-url=https://cdn.docbook.org/release/xsl-nons/current/slides/s5/ui/default/ -o " + os.path.dirname(os.path.abspath(__file__)) + "/static/data/" + output + "." + file_type
     # order = "pandoc "+input+".md -o "+output+".html -t slidy -s"
     os.system(order)
     return output
