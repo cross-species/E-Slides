@@ -1,16 +1,19 @@
 # project/__init__.py
-from flask import flash, abort, Flask, jsonify, render_template, redirect, url_for, request, make_response, send_from_directory, send_file
+from flask import flash, abort, Flask, jsonify, render_template, redirect, url_for, request, make_response, send_from_directory, send_file, session
 from flask_wtf.form import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, IntegerField, SubmitField, TextAreaField, Form
 from wtforms.validators import Length, DataRequired, Optional
 from call import *
+import os
 import time
+from datetime import timedelta
 # import flask_login
 
 import uuid
 from werkzeug.security import generate_password_hash
 
 app = Flask(__name__)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = timedelta(seconds=1)
 app.secret_key = '123456781'
 
 # login_manager = flask_login.LoginManager()
@@ -45,7 +48,11 @@ def login():
 @app.route('/md', methods=['GET', 'POST'])
 def markdown():
     if request.method == 'GET':
+        session['style'] = 'sdadf'
         return render_template('/md.html')
+    # if request.method == 'POST':
+    #     g.style = 'sdadf'
+    #     return render_template('md.html')
 
 
 @app.route('/test_post/mindmap', methods=['POST'])
@@ -55,8 +62,8 @@ def post_mindmap():
     # with open("static/data/" + md_name + ".md", "w") as f:
     #     f.write(request.form['data'])
     # f.close()
-    save_md(request.form['data'], md_name)
-    mmp_name = md_name + "_mindmap_"+str(time.time())
+    md_name = save_md(request.form['data'], md_name)
+    mmp_name = md_name + "_mindmap"
     callMindMap(md_name, mmp_name)
     return jsonify({'code': True, 'message': mmp_name})
 
@@ -78,7 +85,7 @@ def get_file(file_name):
 # status = False
 @app.route('/test_post/jupyter', methods=['GET'])
 def new_jupyter():
-    pj_path = "D:\\E-Slides\\static\\data\\" # TODO:path is extracted from DB, according to user id
+    pj_path = path = os.path.dirname(os.path.abspath(__file__)) + "/static/data/" # TODO:path is extracted from DB, according to user id
     # if not status:
     #     status = startJupyter(pj_path)
     # if status:
@@ -90,6 +97,7 @@ def new_jupyter():
 @app.route('/test_post/slides', methods=['POST'])
 def post_slides():
     print(request.form['data'])
+    print('g-style: ', session.get('style'))
     md_name = "test"
     save_md(request.form['data'], md_name)
     sld_name = md_name + "_slides_"+ str(time.time())
@@ -101,28 +109,6 @@ def project():
     return render_template("/projects.html")
 
 
-# class MockCreate(Form):
-#     # user_email = StringField("email address",[Email()])
-#     # api = StringField("api",[DataRequired()])
-#     submit = SubmitField("Submit")
-#     # code = IntegerField("code example: 200",[DataRequired()])
-#     # alias = StringField("alias for api")
-#     data = TextAreaField("json format",[DataRequired()])
-
-# @app.route("/mockservice",methods=['GET','POST'])
-# def MockController():
-#     form = MockCreate()
-#     # code = form['code']
-#     # api = form['api']
-#     print(form.data)
-#     return 'Successfully sent {}'.format(form.data[1:-1])
-
-# @app.route('/custom', methods=['GET', 'POST'])
-# def custom():
-#     if request.method == 'POST':
-#         fuck = request.form.get('fuck')
-#         return 'Successfully sent {}'.format(fuck)
-
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=5010, debug=True)
