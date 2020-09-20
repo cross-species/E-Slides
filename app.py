@@ -1,9 +1,10 @@
 # project/__init__.py
-from flask import flash, abort, Flask, jsonify, render_template, redirect, url_for, request
+from flask import flash, abort, Flask, jsonify, render_template, redirect, url_for, request, make_response, send_from_directory, send_file
 from flask_wtf.form import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, IntegerField, SubmitField, TextAreaField, Form
 from wtforms.validators import Length, DataRequired, Optional
 from call import *
+import time
 # import flask_login
 
 import uuid
@@ -44,13 +45,29 @@ def markdown():
 
 @app.route('/test_post/mindmap', methods=['POST'])
 def post_mindmap():
-    print(request)
+    print(request.form['data'])
     md_name = "example" # TODO:file_name is extracted from DB
     with open("static/data/" + md_name + ".md", "w") as f:
         f.write(request.form['data'])
-    callMindMap(md_name, md_name)
-    
-    return jsonify({'code': True, 'message': md_name})
+    f.close()
+    mmp_name = md_name + str(time.time())
+    callMindMap(md_name, mmp_name)
+    # file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename
+    return jsonify({'code': True, 'message': mmp_name})
+
+@ app.route("/show/<file_name>", methods=['GET'])
+def show_file(file_name):
+    return app.send_static_file("data/"+file_name)
+
+@app.route('/get_file/<file_name>', methods=['GET'])
+def get_file(file_name):
+    directory = config.APP_PATH #TODO: your local directory
+    try:
+        response = make_response(
+            send_from_directory(directory, file_name, as_attachment=True))
+        return response
+    except Exception as e:
+        return jsonify({"code": "异常", "message": "{}".format(e)})
 
 
 status = False

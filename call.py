@@ -1,10 +1,12 @@
 import os
 
-def callMindMap(input, output, fileCat="html"):
-    
-    order = "markmap -o \"D:\\E-Slides\\static\\data\\" + output + \
-        "." + fileCat + "\" --enable-mathjax --enable-prism --no-open " + input + ".md"
-    os.system(order)
+def callMindMap(input, output, fileCat="html", path = "D:\\E-Slides\\static\\data\\"):
+    # order1 =  "cd " + path
+    order2 = "markmap -o \"" + path + output + \
+        "." + fileCat + "\" --enable-mathjax --enable-prism --no-open " + path + input + ".md"
+    # os.system(order1)
+    os.system(order2)
+
 
 def startJupyter(path = "D:\\E-Slides\\static\\data\\"):
     order1 = "cd " + path
@@ -21,5 +23,5 @@ def callSlides(id, output):
     order = "pandoc "+id+".md -o "+output+".html -t slidy -s"
     os.system()
 
-
-
+md_name = "example"
+callMindMap(md_name, md_name)

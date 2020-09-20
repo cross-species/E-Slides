@@ -299,7 +299,7 @@ label {
   position: fixed;
   top: 0;
   display: block;
-  padding: 35px 0;
+  padding: 35px 0 0 0;
   width: 100%;
   background-color: white;
   border-bottom: 2px solid #f3f3f3;
@@ -504,7 +504,7 @@ label {
   text-transform: uppercase;
   padding-bottom: 20px;
   border-bottom: 1px solid #dbdbdb;
-  margin: 0 0 90px 0;
+  margin: 20px 0 90px 0;
   width: 100%;
 }
 .section-title.left {
