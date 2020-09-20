@@ -1,35 +1,32 @@
-% Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
 \PassOptionsToPackage{hyphens}{url}
 %
-\documentclass[
-  ignorenonframetext,
-]{beamer}
+\documentclass[ignorenonframetext,]{beamer}
 \usepackage{pgfpages}
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{caption label separator}{: }
 \setbeamercolor{caption name}{fg=normal text.fg}
 \beamertemplatenavigationsymbolsempty
-% Prevent slide breaks in the middle of a paragraph
+% Prevent slide breaks in the middle of a paragraph:
 \widowpenalties 1 10000
 \raggedbottom
 \setbeamertemplate{part page}{
-  \centering
-  \begin{beamercolorbox}[sep=16pt,center]{part title}
-    \usebeamerfont{part title}\insertpart\par
-  \end{beamercolorbox}
+\centering
+\begin{beamercolorbox}[sep=16pt,center]{part title}
+  \usebeamerfont{part title}\insertpart\par
+\end{beamercolorbox}
 }
 \setbeamertemplate{section page}{
-  \centering
-  \begin{beamercolorbox}[sep=12pt,center]{part title}
-    \usebeamerfont{section title}\insertsection\par
-  \end{beamercolorbox}
+\centering
+\begin{beamercolorbox}[sep=12pt,center]{part title}
+  \usebeamerfont{section title}\insertsection\par
+\end{beamercolorbox}
 }
 \setbeamertemplate{subsection page}{
-  \centering
-  \begin{beamercolorbox}[sep=8pt,center]{part title}
-    \usebeamerfont{subsection title}\insertsubsection\par
-  \end{beamercolorbox}
+\centering
+\begin{beamercolorbox}[sep=8pt,center]{part title}
+  \usebeamerfont{subsection title}\insertsubsection\par
+\end{beamercolorbox}
 }
 \AtBeginPart{
   \frame{\partpage}
@@ -46,40 +43,35 @@
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
   \usepackage{unicode-math}
-  \defaultfontfeatures{Scale=MatchLowercase}
-  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \fi
-% Use upquote if available, for straight quotes in verbatim environments
+% use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\IfFileExists{microtype.sty}{% use microtype if available
-  \usepackage[]{microtype}
-  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\makeatletter
-\@ifundefined{KOMAClassName}{% if non-KOMA class
-  \IfFileExists{parskip.sty}{%
-    \usepackage{parskip}
-  }{% else
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
-}{% if KOMA class
-  \KOMAoptions{parskip=half}}
-\makeatother
-\usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
 \hypersetup{
-  pdftitle={E-slides},
-  pdfauthor={team-cross},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
+            pdftitle={E-slides},
+            pdfauthor={team-cross},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
 \newif\ifbibliography
 \usepackage{color}
 \usepackage{fancyvrb}
@@ -121,11 +113,11 @@
 \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
 \usepackage{caption}
-% Make caption package work with longtable
+% These lines are needed to make table captions work with longtable:
 \makeatletter
 \def\fnum@table{\tablename~\thetable}
 \makeatother
-\usepackage{graphicx}
+\usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -134,17 +126,16 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-% Set default figure placement to htbp
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+% set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-\ifluatex
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
+
 
 \title{E-slides}
 \author{team-cross}
@@ -155,6 +146,7 @@
 
 \begin{frame}{Description}
 \protect\hypertarget{description}{}
+
 A Teacher is responsible for preparing lesson plans and educating
 students at all levels. Their duties include assigning homework, grading
 tests, and documenting progress. \textbf{Teachers} must be able to
@@ -162,10 +154,12 @@ instruct in a variety of subjects and reach students with engaging
 lesson plans.
 
 \includegraphics{./md_pics/1.jpg}
+
 \end{frame}
 
 \begin{frame}{Demands}
 \protect\hypertarget{demands}{}
+
 \begin{itemize}
 \item
   Online editing
@@ -184,16 +178,20 @@ lesson plans.
     exclusively for students
   \end{itemize}
 \end{itemize}
+
 \end{frame}
 
 \begin{frame}[fragile]
+
 \begin{itemize}
 \item
   contain equations and codes
 
   \emph{Equation eg.}
 
-  \(L(y,f(x)) = (y-f(x))^2\)
+  \[
+  L(y,f(x)) = (y-f(x))^2
+  \]
 
   \emph{Code eg.}
 
@@ -204,12 +202,14 @@ lesson plans.
 \end{Highlighting}
 \end{Shaded}
 \end{itemize}
+
 \end{frame}
 
 \begin{frame}{function}
 \protect\hypertarget{function}{}
+
 \begin{block}{Core function}
-\protect\hypertarget{core-function}{}
+
 \begin{itemize}
 \tightlist
 \item
@@ -221,10 +221,11 @@ lesson plans.
 \item
   pdf downloads
 \end{itemize}
+
 \end{block}
 
 \begin{block}{Additional function}
-\protect\hypertarget{additional-function}{}
+
 \begin{itemize}
 \tightlist
 \item
@@ -234,11 +235,14 @@ lesson plans.
 \item
   interactive editing
 \end{itemize}
+
 \end{block}
+
 \end{frame}
 
 \begin{frame}{Figures}
 \protect\hypertarget{figures}{}
+
 Tables, graphs, and images
 
 \begin{longtable}[]{@{}llll@{}}
@@ -251,6 +255,7 @@ Faculty of Science & 786 & 5275 & 14.90\tabularnewline
 Faculty of Arts & 64 & 4591 & 1.39\tabularnewline
 \bottomrule
 \end{longtable}
+
 \end{frame}
 
 \end{document}
