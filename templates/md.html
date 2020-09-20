@@ -99,7 +99,7 @@
             else {
                 // alert(textInput);
                 $.ajax({
-                    url: "test_post/mindmap",
+                    url: "/test_post/mindmap",
                     type: "POST",
                     dataType: "json",
                     data: {
@@ -113,7 +113,7 @@
                         // frames.push('./data/' + data.message + '.html')
                         // window.Refresh()
                         var iframe = document.createElement('iframe'); 
-                        iframe.src='./show/' + data.message + '.html'; 
+                        iframe.src='/show/' + data.message + '.html'; 
                         iframe.width = '100%'
                         iframe.height = '640'
                         iframe.webkitallowfullscreen = ""
@@ -141,7 +141,7 @@
             else {
                 // alert(textInput);
                 $.ajax({
-                    url: "test_post/slides",
+                    url: "/test_post/slides",
                     type: "POST",
                     dataType: "json",
                     data: {
@@ -155,7 +155,7 @@
                         // frames.push('./data/' + data.message + '.html')
                         // window.Refresh()
                         var iframe = document.createElement('iframe'); 
-                        iframe.src='./show/' + data.message + '.html'; 
+                        iframe.src='/show/' + data.message + '.html'; 
                         iframe.width = '100%'
                         iframe.height = '640'
                         iframe.webkitallowfullscreen = ""

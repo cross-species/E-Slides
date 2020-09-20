@@ -40,14 +40,13 @@ def login():
             return f"<html><body>Welcome! Please regester.</body></html>"
 
 
-@app.route('/md', methods=['GET', 'POST'])
-def markdown():
-    if request.method == 'GET':
-        session['style'] = 'sdadf'
-        return render_template('/md.html')
-    # if request.method == 'POST':
-    #     g.style = 'sdadf'
-    #     return render_template('md.html')
+@app.route('/md/<style_name>', methods=['GET'])
+def markdown(style_name):
+    if style_name not in ['beamer', 'Drawboard', 'slidy']:
+        print('fuck!')
+        style_name = 'beamer'
+    session['style'] = style_name
+    return render_template('/md.html')
 
 
 @app.route('/test_post/mindmap', methods=['POST'])
@@ -96,7 +95,7 @@ def post_slides():
     md_name = "example"
     md_name = save_md(request.form['data'], md_name)
     sld_name = md_name + "_slides"
-    callSlides(md_name, sld_name, file_type='html', style='slidy')
+    callSlides(md_name, sld_name, file_type='html', style=session.get('style'))
     return jsonify({'code': True, 'message': sld_name})
 
 @app.route('/projects', methods=('GET', 'POST'))
