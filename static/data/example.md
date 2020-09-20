@@ -1,6 +1,6 @@
-# Title
-
-------
+% E-slides
+% team-cross
+% Sept 18, 2020
 
 
 
@@ -21,20 +21,33 @@ A Teacher is responsible for preparing lesson plans and educating students at al
 * Online editing
 * auto formatting
 * online preview
+
 * downloads
+  * exclusively for teachers
+  * exclusively for students
+
+-----
+
+
 
 * contain equations and codes
 
-  For example:
+  
 
-  * $$
-    L(y,f(x)) = (y-f(x))^2
-    $$
+  *Equation eg.*
 
-  * ```python
+  $$
+  L(y,f(x)) = (y-f(x))^2
+  $$
+  
+  
+  
+  *Code eg.*
+  
+  ```python
     x = [1,2,3,4,5]
     y = x.pop()
-    ```
+  ```
 
 ------
 
@@ -66,4 +79,5 @@ Tables, graphs, and images
 | Faculty of Informatics | 1716     | 2904  | 59.09 |
 | Faculty of Science     | 786      | 5275  | 14.90 |
 | Faculty of Arts        | 64       | 4591  | 1.39  |
+
 

@@ -36,7 +36,7 @@ A Teacher is responsible for preparing lesson plans and educating students at al
 
   *Equation eg.*
 
-  $L(y,f(x)) = (y-f(x))^2$
+  $$L(y,f(x)) = (y-f(x))^2$$
   
   
   
