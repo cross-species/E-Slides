@@ -47,9 +47,8 @@ def login():
 
 @app.route('/md/<style_name>', methods=['GET'])
 def markdown(style_name):
-    if style_name not in ['beamer', 'Drawboard', 'slidy']:
-        print('fuck!')
-        style_name = 'beamer'
+    if style_name is None:
+        style_name = "Goettingen,seahorse"
     session['style'] = style_name
     return render_template('/md.html')
 
@@ -74,6 +73,7 @@ def show_file(file_name):
 def get_file(file_name):
     directory = config.APP_PATH #TODO: your local directory
     try:
+        print('directory: ', directory)
         response = make_response(
             send_from_directory(directory, file_name, as_attachment=True))
         return response

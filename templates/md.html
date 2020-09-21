@@ -29,13 +29,8 @@
         <input type="button" id="jupyter_new" value="Create a new jupyter notebook">
         <input type="button" id='jupyter_my_own' value='Open my jupyter notebook'>
         <input type="button" id='fullscreen' value='Full Screen'>
+        <input type="button" id='download' value='Download'>
     </form>
-
-    {% for iframe_path in context %}
-        <!-- <iframe>My name is {{ context.myname }}</iframe> -->
-        <iframe name="my-iframe" id="my-iframe" src= {{ iframe_path }} frameborder="0" width="50%" height="50%" scrolling="yes"></iframe>
-        <!-- <p>The word is {{ context.myword }}</p> -->
-    {% endfor %}
 
         
     <script src="/static/js/jquery.min.js"></script>
@@ -54,16 +49,6 @@
     </script>
 
     <script>
-        // const Editor = toastui.Editor;
-        // const editor = new Editor({
-        //     el: document.querySelector('#editor'),
-        //     height: '500px',
-        //     initialEditType: 'markdown',
-        //     previewStyle: 'vertical'
-        // });
-
-        // editor.getHtml();
-        
         var editor = editormd("editor", {
             width: "100%",
             height: "640",
@@ -83,8 +68,7 @@
             jupyter_new_button.onclick = jupyter_CreateNew;
             var jupyter_new_button = document.getElementById('jupyter_my_own');
             jupyter_new_button.onclick = jupyter_UseMyOwn;
-            // var fullscreen_button = document.getElementById('fullscreen');
-            // fullscreen_button.onclick = 
+            var value_file = ''
         }
 
         var frames = []
@@ -124,6 +108,7 @@
                         console.log(iframe)
                         // iframe.onload = 
                         document.body.appendChild(iframe);
+                        value_file = data.message + '.pdf';
                         renderMathInElement(document.getElementById('mindmap'))
                         // editor.setHtml(data['message'], false)
                     }
@@ -163,6 +148,7 @@
                         iframe.allowfullscreen = ""
                         iframe.id = 'slides'
                         document.body.appendChild(iframe);
+                        value_file = data.message + '.pdf';
                         renderMathInElement(document.getElementById('slides'))
                     }
                 })
@@ -250,6 +236,32 @@
                 $("#exitFullScreen").css("display","");
                 $("#fullScreen").css("display","none");
             }
+        }
+
+        $(function(){
+            //全屏
+            $("#download").on("click",function(){
+                Download_File();
+            })
+        })
+
+        function Download_File() {
+            // if( $("#slides").length>0){
+            //      'slides';
+            // }else if($("#mindmap").length>0){
+            //     var value_file = 'mindmap';
+            // }else{
+            //     console.log('Error')
+            //     return
+            // }
+            $.ajax({
+                    url: "/show/" + value_file,
+                    type: "GET",
+                    success: function (data) {
+                    window.open(data);  // fuzhi untitled.ipynb
+                }
+                })
+                
         }
     </script>
 

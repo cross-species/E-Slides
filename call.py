@@ -20,20 +20,22 @@ def startJupyter(path = os.path.dirname(os.path.abspath(__file__)) + "/static/da
         status = True
     return status
 
-def callSlides(input, output, file_type='html', style='slidy'):
+def callSlides(input, output, file_type='html', style='Goettingen,seahorse'):
     '''Convert markdown into html / pdf.
     Input:
         input - input file's name
         output - output file's name
         file_type - output file type ('html' / 'pdf')
-        style - output file's style
+        style - output file's style ('{theme},{colortheme}')
     '''
-    if style == 'slidy':
-        order = "pandoc " + os.path.dirname(os.path.abspath(__file__)) + "/static/data/" + input + ".md -o " + os.path.dirname(os.path.abspath(__file__)) + "/static/data/" + output + "." + file_type + " -t " + style + " -s"
-    if style == 'beamer':
-        order = "pandoc " + os.path.dirname(os.path.abspath(__file__)) + "/static/data/" + input + ".md -s -t s5 -V s5-url=https://cdn.docbook.org/release/xsl-nons/current/slides/s5/ui/default/ -o " + os.path.dirname(os.path.abspath(__file__)) + "/static/data/" + output + "." + file_type
-    # order = "pandoc "+input+".md -o "+output+".html -t slidy -s"
-    os.system(order)
+    theme_style, colortheme_style = style.split(",")
+    order1 = "pandoc -f markdown -t beamer" + "  -V theme:" + theme_style + " -V colortheme:" + colortheme_style + " -o "  + os.path.dirname(os.path.abspath(__file__)) + "/static/data/" + output + ".html " + os.path.dirname(os.path.abspath(__file__)) + "/static/data/" + input + ".md"
+    order2 = "pandoc -f markdown -t beamer" + "  -V theme:" + theme_style + " -V colortheme:" + colortheme_style + " -o "  + os.path.dirname(os.path.abspath(__file__)) + "/static/data/" + output + ".pdf " + os.path.dirname(os.path.abspath(__file__)) + "/static/data/" + input + ".md"
+    print('order1: ', order1)
+    print('order2: ', order2)
+     # order = "pandoc "+input+".md -o "+output+".html -t slidy -s"
+    os.system(order1)
+    os.system(order2)
     return output
 
 def save_md(content, input_name='example'):
